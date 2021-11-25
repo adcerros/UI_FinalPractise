@@ -1,0 +1,42 @@
+/* Estilo cuerpo */
+body {
+    font-family: 'Helvetica';
+    background-color: white;
+    color: black;
+}
+
+/* Estilo cuerpo */
+header {
+    font-family: 'Helvetica';
+    background-color: black;
+    color: white;
+}
+
+/* Estilo cuerpo */
+.nav-link {
+    font-family: 'Helvetica Neue';
+    background-color: black;
+    color: white;
+}
+
+.container-fluid {
+    font-family: 'Helvetica Neue';
+    background-color: black;
+    color: white;   
+}
+
+/* Estilo de los botones del header*/
+.header-btn{
+    font-size: 2.5vw;
+    background-color:black;
+    border: none;
+    font-family: 'Helvetica Neue';
+    color: white;
+}
+
+.navbar{
+    font-family: 'Helvetica Neue';
+    background-color: black;
+    color: white;      
+}
+
