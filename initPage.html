@@ -4,6 +4,7 @@
 <html>
     <head>
         <script src="./script/jquery-3.6.0.min.js"></script>
+        <script src="./script/main.js"></script>
         <script src="./script/mainpage.js"></script>
         <script src="./script/js.cookie.min.js"></script>
         <script src="./script/jquery.validate.min.js"></script>
@@ -17,42 +18,22 @@
     <body> 
         <!-- Cabecera-->   
         <header>
-        <nav class="navbar navbar-expand-lg navbar-black bg-black">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <img src="/images/logo.png" alt="" width="10%" height="10%" class="d-inline-block align-text-top">
-            <img src="/images/logo.png" alt="" width="10%" height="10%" class="d-inline-block align-text-top">
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                </ul>
-            </div>
+            <nav id="header-bar">
+                <nav id="main-bar" class="navbar navbar-expand-lg navbar-black bg-black  justify-content-between">
+                    <img src="/images/options.png" alt="" width="3%" class="img-fluid ml-5">
+                    <img src="/images/logo.png" alt="" width="10%"  class="img-fluid">
+                    <img src="/images/logIn.png" alt="" width="3%"  class="img-fluid  mr-5">
+                </nav>
+                <nav id="btns-bar"class="navbar navbar-expand-lg navbar-black bg-black d-flex justify-content-around">
+                    <div id="experiences-selected-background"><p class="selected-btn-text">Experiences</p></div>
+                    <div id="top-selected-background"><p class="selected-btn-text">Top</p></div>
+                    <div id="plan-selected-background"><p class="selected-btn-text">Plan a trip</p></div>
+                    <button id="experiences-btn" type="button" class="experiences-btn">Experiences</button>
+                    <button id="top-btn" type="button" class="top-btn">Top</button>
+                    <button id="plan-btn" type="button" class="plan-btn">Plan a trip</button>
+                </nav>
             </nav>
-            </nav class="navbar navbar-expand-lg navbar-black bg-black">
-            <ul class="navbar">
-                <a class="nav-link active" aria-current="page" href="#" width="10%" height="10%" >Experiences</a>
-                <a class="nav-link" href="#">Top</a>
-                <a class="nav-link" href="#">Plan a trip</a>
-            </ul>
+            <div id="margin-div"></div>
         </header>
         <img src="/images/home.png" class="img-fluid" alt="Responsive image">
         <!--Pie de pagina-->

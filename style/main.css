@@ -12,31 +12,157 @@ header {
     color: white;
 }
 
-/* Estilo cuerpo */
-.nav-link {
-    font-family: 'Helvetica Neue';
-    background-color: black;
+
+.img-fluid{
+    min-width: 30px;
+}
+
+
+.header-btn, .header-btn:focus{
     color: white;
-}
-
-.container-fluid {
-    font-family: 'Helvetica Neue';
+    width: 20%;
     background-color: black;
-    color: white;   
-}
-
-/* Estilo de los botones del header*/
-.header-btn{
-    font-size: 2.5vw;
-    background-color:black;
+    font-size: calc(0.6vw + 0.6em);
+    margin-top: 2%;
+    margin-bottom: 1%;
     border: none;
-    font-family: 'Helvetica Neue';
+    outline: none; 
+    z-index: 1;
+}
+
+.top-btn, .top-btn:focus{
     color: white;
-}
-
-.navbar{
-    font-family: 'Helvetica Neue';
+    width: 20%;
     background-color: black;
-    color: white;      
+    font-size: calc(0.6vw + 0.6em);
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: none;
+    outline: none; 
+    z-index: 1;
 }
 
+.experiences-btn, .experiences-btn:focus{
+    color: white;
+    width: 20%;
+    background-color: black;
+    font-size: calc(0.6vw + 0.6em);
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: none;
+    outline: none; 
+    z-index: 1;
+}
+
+.plan-btn, .plan-btn:focus{
+    color: white;
+    width: 20%;
+    background-color: black;
+    font-size: calc(0.6vw + 0.6em);
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: none;
+    outline: none; 
+    z-index: 1;
+}
+
+.experiences-btn-selected, .experiences-btn-selected:focus{
+    color: black;
+    width: 20%;
+    background-color: white;
+    font-size: calc(0.6vw + 0.6em);
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: none;
+    outline: none; 
+    z-index: -1;
+}
+
+
+.top-btn-selected, .top-btn-selected:focus{
+    color: black;
+    width: 20%;
+    background-color: white;
+    font-size: calc(0.6vw + 0.6em);
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: none;
+    outline: none; 
+    z-index: -1;
+}
+
+
+.plan-btn-selected, .plan-btn-selected:focus{
+    color: black;
+    width: 20%;
+    background-color: white;
+    font-size: calc(0.6vw + 0.6em);
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: none;
+    outline: none; 
+    z-index: -1;
+}
+
+#experiences-selected-background{
+    display: none;
+    margin-top: calc(0.8vw + 1vh);
+    margin-left: -64.5%;
+    position: absolute;
+    width: 22%;
+    height: calc(4.70vw + 5vh);
+    background-color: white;
+    z-index: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#top-selected-background{
+    display: none;
+    margin-top: calc(0.8vw + 1vh);
+    position: absolute;
+    width: 22%;
+    height: calc(4.70vw + 5vh);
+    background-color: white;
+    z-index: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#plan-selected-background{
+    display: none;
+    margin-top: calc(0.8vw + 1vh);
+    margin-left: 64%;
+    position: absolute;
+    width: 22%;
+    height: calc(4.70vw + 5vh);
+    background-color: white;
+    z-index: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#header-bar{
+    position: fixed;
+    width: 100%;
+    background-color: black;
+    height: calc(8.75vw + 9vh);
+    z-index: 1;
+}
+
+
+#margin-div{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    background-color: black;
+    height: calc(7.5vw + 8vh);
+    z-index: -1;
+}
+
+.selected-btn-text{
+    margin-top: calc(1.5vw + 1.6vh);;
+    color: black;
+    font-size: calc(0.6vw + 0.6em);
+    text-align: center;
+}
