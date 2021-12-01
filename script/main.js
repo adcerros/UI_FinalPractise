@@ -22,6 +22,32 @@ function paddingAnimationOff (id){
      });
 }
 
+function optionsAnimationOn (){
+    $("#secondary-options-div").show();
+    $("#close-options-btn").show();
+    $(".options-div").animate({
+        width: '50vh'
+     }, 'slow');
+     $("#secondary-options-div").animate({
+        width: '100%'
+     });
+}
+
+//Animaciones por pasos mediante funciones anidadas
+function optionsAnimationOff (){
+    $("#secondary-options-div").animate({
+        width: '60%'
+     }, function(){
+         $("#secondary-options-div").hide();
+         $("#close-options-btn").hide();
+         $(".options-div").animate({
+        width: '0%'
+     }, 'slow', function(){
+        $("#options-div").hide();
+   });
+     });
+}
+
 $(document).ready(function(){
 
 $(".experiences-btn").click(function() {
@@ -61,17 +87,28 @@ $(".plan-btn").click(function() {
     paddingAnimationOn("plan");
 });
 
+// Apertura del menu opciones
 $("#options-btn").click(function() {
     $("#options-div").show();
+    optionsAnimationOn();
     $("#options-btn").hide();
     $("#options-btn-selected").show();
 });
 
+//Cierre del menu opciones mediante el boton opciones
 $("#options-btn-selected").click(function() {
-    $("#options-div").hide();
+    optionsAnimationOff();
     $("#options-btn-selected").hide();
     $("#options-btn").show();
 });
+
+//Cierre del menu opciones mediante el boton de cerrar especifico
+$("#close-options-btn").click(function() {
+    optionsAnimationOff();
+    $("#options-btn-selected").hide();
+    $("#options-btn").show();
+});
+
 
 });
 

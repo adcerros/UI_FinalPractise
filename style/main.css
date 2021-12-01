@@ -149,8 +149,41 @@ header {
     margin-top: -0.5%;
     background-color: black;
     position: absolute;
-    width: 40%;
+    width: 0%;
     height: 100%;
     border-bottom-right-radius: calc(0.6vw + 0.6em);
     border: none;
+}
+
+.rounded-circle {
+    margin: auto;
+    position: relative;    
+}
+
+.close-simbols, .close-simbols:focus{
+    font-size: calc(1vw + 1em);
+    color: white;
+    width: 10%;
+    background-color: black;
+    border: none;
+    outline: none;
+}
+
+.standard-btn, .standard-btn:focus{
+    font-size: calc(1.2vw + 1.2em);
+    color: white;
+    width: 10%;
+    background-color: black;
+    border: none;
+    outline: none;
+}
+
+.options-text {
+    font-family: 'Helvetica';
+    color: white;
+    font-size: calc(0.5vw + 0.5em);
+}
+
+#close-options-btn {
+    display: none;
 }

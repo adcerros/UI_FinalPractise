@@ -18,6 +18,7 @@
     <body> 
         <!-- Cabecera-->   
         <header>
+            <!-- Botones superiores (options, logo y login) -->
             <nav id="header-bar">
                 <nav id="main-bar" class="navbar navbar-expand-lg navbar-black bg-black  justify-content-between">
                     <button id="options-btn" class="header-btn"><img src="/images/options.png" alt="" width="3%" class="img-fluid"></button>
@@ -25,6 +26,7 @@
                     <button class="header-btn"><img src="/images/logo.png" alt="" width="100vw"  class="img-fluid"></button>
                     <button class="header-btn"><img src="/images/logIn.png" alt="" width="3%"  class="img-fluid"></button>
                 </nav>
+                 <!-- Botones inferiores (experiences, top y plan a trip) -->
                 <nav id="btns-bar"class="navbar navbar-expand-lg navbar-black bg-black d-flex justify-content-around">
                     <button id="experiences-btn" type="button" class="experiences-btn">Experiences</button>
                     <button id="top-btn" type="button" class="top-btn">Top</button>
@@ -32,7 +34,21 @@
                 </nav>
             </nav>
         </header>
-        <div id="options-div" class="options-div"></div>
+        <!-- Menu options -->
+        <div id="options-div" class="options-div">
+            <div class="d-flex justify-content-end mt-4 mr-3"><button id="close-options-btn" class="close-simbols">&#x292C;</button></div>
+            <div id="secondary-options-div" class="col justify-content-around mt-5">
+                    <div class="d-flex mb-5 ml-0">
+                        <img src="/images/avatar.jpeg" alt="" width="40%"  class="rounded-circle">
+                    </div>
+                    <div class="col justify-content-around ml-4">
+                        <p class="options-text">Id usuario</p>
+                        <p class="options-text">Email</p>
+                        <p class="options-text">Born Date</p>
+                        <p class="options-text">Pass</p>
+                    </div>
+            </div>
+        </div>
         <img src="/images/home.png" class="img-fluid" alt="Responsive image">
         <!--Pie de pagina-->
         <footer>
