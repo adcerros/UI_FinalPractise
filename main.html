@@ -24,7 +24,7 @@
                     <button id="options-btn" class="header-btn"><img src="/images/options.png" alt="" width="3%" class="img-fluid"></button>
                     <button id="options-btn-selected" class="options-btn-selected"><img src="/images/options-selected.png" alt="" width="3%" class="img-fluid"></button>
                     <button class="header-btn"><img src="/images/logo.png" alt="" width="100vw"  class="img-fluid"></button>
-                    <button class="header-btn"><img src="/images/logIn.png" alt="" width="3%"  class="img-fluid"></button>
+                    <button id="logIn-btn" class="header-btn"><img src="/images/logIn.png" alt="" width="3%"  class="img-fluid"></button>
                 </nav>
                  <!-- Botones inferiores (experiences, top y plan a trip) -->
                 <nav id="btns-bar"class="navbar navbar-expand-lg navbar-black bg-black d-flex justify-content-around">
@@ -46,8 +46,50 @@
                         <p class="options-text">Email</p>
                         <p class="options-text">Born Date</p>
                         <p class="options-text">Pass</p>
+                        <button class="changeInfo-btn">Change user information</button>
+                        <button class="terms-btn">Terms and conditions</button>
                     </div>
             </div>
+        </div>
+        <!-- POP UPS Y FORMULARIOS -->
+        <!-- Div auxiliar para oscurecer el fondo -->
+        <div id="auxDiv-popUp"></div>
+        <!-- PopUp de logIn -->
+        <div id="logIn-popUp" class="col justify-content-around">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-logIn-btn" class="close-simbols-white">&#x292C;</button></div>
+            <p class="titles">Welcome again</p>
+            <p class="form-text mt-5">Username</p>
+            <p class="form-text"><input id="userId" name="userId" class="form-input" type="text" placeholder="(Required)" required></p>
+            <p class="form-text mt-5">Password</p>
+            <p class="form-text"><input id="userPass" name="userPass" class="form-input" type="password" placeholder="(Required)" required></p>
+            <div class="form-text"><button class="standard-btn mt-5">Log In</button></div>
+            <p class="form-text mt-5"><button id="signUp-btn" class="signUp-btn">Create a new account</button></p>       
+        </div>
+        <!-- Formulario de registro -->
+        <div>
+        <form id="signUp-form" class="signUp-form">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-signUp-btn" class="close-simbols-white">&#x292C;</button></div>
+            <p class="titles">Tell us something about yourself</p>
+            <p class="form-text mt-5">User name</p>
+            <p><input id="userId" name="userId" class="form-input" type="text" placeholder="(Required)" required></p>
+            <p class="form-text mt-5">Password</p>
+            <p><input id="userPass" name="userPass" class="form-input" type="password" placeholder="(Required)" required></p>
+            <p class="form-text mt-5">Name and Surname</p>
+            <p><input id="userName" name="userName" class="form-input" type="text" placeholder="(Required)" required></p>
+            <p class="form-text mt-5">Email</p>
+            <p><input id="userEmail" name="userEmail" class="form-input" type="text" placeholder="(Required)" required></p>
+            <p class="form-text mt-5">Born date</p>
+            <p><input id="userBornDate" name="userBornDate" class="form-input" type="text" placeholder="(Required)" required></p>
+            <p class="form-text mt-5">Profile image</p>
+            <div class="d-flex justify-content-around">
+                    <input id="userProfileImage" name="userProfileImage" type="file"/>
+                    <button class="selectImage-btn" type="button"><label for="userProfileImage">Select Image</label></button>
+                    <p id="loadedImage" class="form-p"><img src="./images/common/ok-icon.png" alt="ok-icon"></p>
+            </div>
+            <p class="form-text mt-4"><input id="chckTerms" name="chckTerms" type="checkbox" value="true" required><label for="chckTerms" class ="termsText ml-2" >I have read and accept the terms and conditions</label></p>
+            <div class="form-text mt-2"><button class="special-btn">Reset form</button></div>
+            <div class="form-text mb-5 mt-3"><button class="standard-btn">Sign In</button></div>
+        </form>
         </div>
         <img src="/images/home.png" class="img-fluid" alt="Responsive image">
         <!--Pie de pagina-->

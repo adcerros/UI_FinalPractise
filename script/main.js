@@ -109,6 +109,26 @@ $("#close-options-btn").click(function() {
     $("#options-btn").show();
 });
 
+//Apertura del logIn
+$("#logIn-btn").click(function() {
+    $("#auxDiv-popUp").show();
+    $("#logIn-popUp").show();
+});
+
+$("#close-logIn-btn").click(function() {
+    $("#auxDiv-popUp").hide();
+    $("#logIn-popUp").hide();
+});
+
+$("#signUp-btn").click(function() {
+    $("#logIn-popUp").hide();
+    $("#signUp-form").show();
+});
+
+$("#close-signUp-btn").click(function() {
+    $("#signUp-form").hide();
+    $("#auxDiv-popUp").hide();
+});
 
 });
 

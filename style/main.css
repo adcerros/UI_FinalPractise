@@ -24,7 +24,7 @@ header {
     border-radius: calc(0.6vw + 0.6em);
     width: 30%;
     background-color: black;
-    font-size: calc(0.6vw + 0.6em);
+    font-size: calc(0.7vw + 0.7em);
     margin-top: 2%;
     margin-bottom: 1%;
     border: none;
@@ -37,7 +37,7 @@ header {
     border-radius: calc(0.6vw + 0.6em);
     width: 30%;
     background-color: black;
-    font-size: calc(0.6vw + 0.6em);
+    font-size: calc(0.7vw + 0.7em);
     margin-top: 2%;
     margin-bottom: 1%;
     border: none;
@@ -50,7 +50,7 @@ header {
     border-radius: calc(0.6vw + 0.6em);
     width: 30%;
     background-color: black;
-    font-size: calc(0.6vw + 0.6em);
+    font-size: calc(0.7vw + 0.7em);
     margin-top: 2%;
     margin-bottom: 1%;
     border: none;
@@ -63,7 +63,7 @@ header {
     border-radius: calc(0.6vw + 0.6em);
     width: 30%;
     background-color: black;
-    font-size: calc(0.6vw + 0.6em);
+    font-size: calc(0.7vw + 0.7em);
     margin-top: 2%;
     margin-bottom: 1%;
     border: none;
@@ -76,7 +76,7 @@ header {
     border-radius: calc(0.6vw + 0.6em);
     width: 30%;
     background-color: white;
-    font-size: calc(0.6vw + 0.6em);
+    font-size: calc(0.7vw + 0.7em);
     margin-top: 2%;
     margin-bottom: 1%;
     border: none;
@@ -90,7 +90,7 @@ header {
     border-radius: calc(0.6vw + 0.6em);
     width: 30%;
     background-color: white;
-    font-size: calc(0.6vw + 0.6em);
+    font-size: calc(0.7vw + 0.7em);
     margin-top: 2%;
     margin-bottom: 1%;
     border: none;
@@ -104,7 +104,7 @@ header {
     border-radius: calc(0.6vw + 0.6em);
     width: 30%;
     background-color: white;
-    font-size: calc(0.6vw + 0.6em);
+    font-size: calc(0.7vw + 0.7em);
     margin-top: 2%;
     margin-bottom: 1%;
     border: none;
@@ -153,6 +153,7 @@ header {
     height: 100%;
     border-bottom-right-radius: calc(0.6vw + 0.6em);
     border: none;
+    z-index: 1;
 }
 
 .rounded-circle {
@@ -172,7 +173,7 @@ header {
 .standard-btn, .standard-btn:focus{
     font-size: calc(1.2vw + 1.2em);
     color: white;
-    width: 10%;
+    width: 30vw;
     background-color: black;
     border: none;
     outline: none;
@@ -187,3 +188,276 @@ header {
 #close-options-btn {
     display: none;
 }
+
+.changeInfo-btn, .changeInfo-btn:focus{
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: calc(0.6vw + 0.6em);
+    color: white;
+    width: 80%;
+    background-color: black;
+    text-align: left;
+    border: none;
+    outline: none;
+    margin-left: -3%;
+    margin-top: 5%;
+}
+
+.terms-btn, .terms-btn:focus{
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: calc(0.6vw + 0.6em);
+    color: white;
+    width: 80%;
+    background-color: black;
+    text-align: left;
+    border: none;
+    outline: none;
+    margin-left: -3%;
+    margin-top: 55%;
+}
+
+.logIn-btn, .logIn-btn:focus{
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: calc(0.65vw + 0.65em);
+    margin-left: 5%;
+    color: black;
+    background-color: transparent;
+    text-align: left;
+    border: none;
+    outline: none;
+}
+
+#signLog-div{
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 10%;
+    width: 60%;
+}
+
+.signLog-text{
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.65vw + 0.65em);
+    width: 30%;
+    margin-left: 1%;
+    color: black;
+    background-color: transparent;
+    text-align: left;
+    border: none;
+    outline: none;
+}
+
+#signUp-form{
+    width: 60vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 20vw;
+    margin-top: 8%;
+    position: absolute;
+    display: none;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+.form-text{
+    font-family: 'Helvetica';
+    font-size: calc(0.65vw + 0.65em);
+    color: black;
+    background-color: transparent;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+.form-input {
+    margin-top: -0.6vh;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.6vw + 0.6em);
+    color: black;
+    width: 30vw;
+    height: calc(4vh + 2vw);
+    background-color: transparent;
+    border: 0.3vh solid black;
+    border-radius: calc(0.6vw + 0.6vh);
+    text-align: center;
+    outline-offset: 0px;
+    outline: none;
+}
+
+.form-input:focus{
+    margin-top: -0.6vh;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.7vw + 0.7em);
+    color: black;
+    width: 30vw;
+    background-color: transparent;
+    border: 0.4vh solid black;
+    border-radius: calc(0.6vw + 0.6vh);
+    text-align: center;
+    outline-offset: 0px;
+    outline: none;
+}
+
+#loadedImage{
+    display: none;
+}
+
+#userProfileImage{
+    display: none;
+}
+
+
+.titles{
+    text-align: center;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.85vw + 0.85em);
+    margin-top: calc(4vh + 2vw);
+    width: 100%;
+    color: black;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#logIn-popUp {
+    position: absolute;
+    display: none;
+    width: 50vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 25vw;
+    margin-top: 8%;
+    z-index: 5;
+    align-items: center;
+    text-align: center;
+}
+
+.close-simbols-white, .close-simbols-white:focus{
+    font-size: calc(1vw + 1em);
+    color: black;
+    width: 10%;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+
+#auxDiv-popUp {
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    min-height: 300vh;
+    z-index: 4;
+}
+
+.termsText {
+    font-family: 'Helvetica';
+    font-size: calc(0.5vw + 0.5em);
+}
+
+.standard-btn, .standard-btn:focus{
+    display: inline-block;
+    color: white;
+    padding: 2.5%;
+    border-radius: calc(0.6vw + 0.6em);
+    width: 30vw;
+    background-color: black;
+    font-size: calc(0.7vw + 0.7em);
+    border: none;
+    outline: none; 
+    margin: 0%;
+}
+
+
+.special-btn, .special-btn:focus{
+    display: inline-block;
+    color: white;
+    padding: 2.5%;
+    border-radius: calc(0.6vw + 0.6em);
+    width: 30vw;
+    background-color: #778899;
+    font-size: calc(0.6vw + 0.6em);
+    margin: 0%;
+    border: none;
+    outline: none; 
+}
+
+.selectImage-btn, .selectImage-btn:focus{
+    display: inline-block;
+    color: white;
+    padding-right: 2.5%;
+    padding-left: 2.5%;
+    padding-top: 2.5%;
+    padding-bottom: 1.5%;
+    border-radius: calc(0.6vw + 0.6em);
+    width: 30vw;
+    background-color: #778899;
+    font-size: calc(0.6vw + 0.6em);
+    margin: 0%;
+    border: none;
+    outline: none; 
+}
+
+.signUp-btn, .signUp-btn:focus{
+    color: black;
+    font-style: bold;
+    text-decoration: underline solid 2px;
+    background-color: white;
+    font-size: calc(0.6vw + 0.6em);
+    padding-bottom: 3%;
+    border: none;
+    outline: none;    
+}
+
+
+
+
+
+
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: grey;
+    text-align: center;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: grey;
+   text-align: center;
+   font-family: 'Helvetica';
+   font-weight: lighter;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: grey;
+   text-align: center;
+   font-family: 'Helvetica';
+   font-weight: lighter;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: grey;
+   text-align: center;
+   font-family: 'Helvetica';
+   font-weight: lighter;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: grey;
+   text-align: center;
+   font-family: 'Helvetica';
+   font-weight: lighter;
+}
+
+::placeholder { /* General. */
+   color: grey;
+   text-align: center;
+   font-family: 'Helvetica';
+   font-weight: lighter;
+}
+
