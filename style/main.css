@@ -325,7 +325,7 @@ header {
     outline: none;
 }
 
-#logIn-popUp {
+#logIn-form{
     position: absolute;
     display: none;
     width: 50vw;

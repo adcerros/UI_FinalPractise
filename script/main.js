@@ -112,16 +112,16 @@ $("#close-options-btn").click(function() {
 //Apertura del logIn
 $("#logIn-btn").click(function() {
     $("#auxDiv-popUp").show();
-    $("#logIn-popUp").show();
+    $("#logIn-form").show();
 });
 
 $("#close-logIn-btn").click(function() {
     $("#auxDiv-popUp").hide();
-    $("#logIn-popUp").hide();
+    $("#logIn-form").hide();
 });
 
 $("#signUp-btn").click(function() {
-    $("#logIn-popUp").hide();
+    $("#logIn-form").hide();
     $("#signUp-form").show();
 });
 
@@ -130,5 +130,14 @@ $("#close-signUp-btn").click(function() {
     $("#auxDiv-popUp").hide();
 });
 
+//Boton de reset formulario de signUp
+$("#reset-signUp-btn").click(function(){
+    $("#signUp-form").trigger("reset");
+}); 
+
+//Boton de reset formulario de signUp
+$("#submit-signUp-btn").click(function(){
+    $("#signUp-form").trigger("submit");
+});
 });
 
