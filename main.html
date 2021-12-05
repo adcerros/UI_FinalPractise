@@ -5,7 +5,6 @@
     <head>
         <script src="./script/jquery-3.6.0.min.js"></script>
         <script src="./script/main.js"></script>
-        <script src="./script/mainpage.js"></script>
         <script src="./script/js.cookie.min.js"></script>
         <script src="./script/jquery.validate.min.js"></script>
         <script src="./script/jquery-ui.min.js"></script>
@@ -25,6 +24,7 @@
                     <button id="options-btn-selected" class="options-btn-selected"><img src="/images/options-selected.png" alt="" width="3%" class="img-fluid"></button>
                     <button class="header-btn"><img src="/images/logo.png" alt="" width="100vw"  class="img-fluid"></button>
                     <button id="logIn-btn" class="header-btn"><img src="/images/logIn.png" alt="" width="3%"  class="img-fluid"></button>
+                    <button id="logOut-btn" class="header-btn"><img src="/images/logOut-icon.png" alt="" width="3%"  class="img-fluid"></button>
                 </nav>
                  <!-- Botones inferiores (experiences, top y plan a trip) -->
                 <nav id="btns-bar"class="navbar navbar-expand-lg navbar-black bg-black d-flex justify-content-around">
@@ -39,7 +39,7 @@
             <div class="d-flex justify-content-end mt-4 mr-3"><button id="close-options-btn" class="close-simbols">&#x292C;</button></div>
             <div id="secondary-options-div" class="col justify-content-around mt-5">
                     <div class="d-flex mb-5 ml-0">
-                        <img src="/images/avatar.jpeg" alt="" width="40%"  class="rounded-circle">
+                        <img id="userImage" src="/images/avatar.jpeg" alt="" width="40%"  class="rounded-circle">
                     </div>
                     <div class="col justify-content-around ml-4">
                         <p class="options-text">Id usuario</p>
@@ -56,39 +56,89 @@
         <div id="auxDiv-popUp"></div>
         <!-- PopUp de logIn -->
         <form id="logIn-form" class="col justify-content-around">
-            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-logIn-btn" class="close-simbols-white">&#x292C;</button></div>
-            <p class="titles">Welcome again</p>
-            <p class="form-text mt-5">Username</p>
-            <p class="form-text"><input id="userId" name="userId" class="form-input" type="text" placeholder="(Required)" required></p>
-            <p class="form-text mt-5">Password</p>
-            <p class="form-text"><input id="userPass" name="userPass" class="form-input" type="password" placeholder="(Required)" required></p>
-            <div class="form-text"><button class="standard-btn mt-5">Log In</button></div>
-            <p class="form-text mt-5"><button id="signUp-btn" class="signUp-btn">Create a new account</button></p>       
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-logIn-btn"  type="button" class="close-simbols-white">&#x292C;</button></div>
+            <p class="titles">Bienvenido de nuevo</p>
+            <p class="form-text mt-5">Usuario</p>
+            <p class="form-text"><input id="logInId" name="logInId" class="form-input" type="text" placeholder="(Obligatorio)" required></p>
+            <p class="form-text mt-5">Contraseña</p>
+            <p class="form-text"><input id="logInPass" name="logInPass" class="form-input" type="password" placeholder="(Obligatorio)" required></p>
+            <div class="form-text"><button id="confirmLogin-btn" class="standard-btn mt-5" type="button">Iniciar sesion</button></div>
+            <p class="form-text mt-5"><button id="signUp-btn" class="signUp-btn" type="button">Crea una cuenta nueva</button></p>       
         </form>
         <!-- Formulario de registro -->
         <form id="signUp-form" class="signUp-form">
-            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-signUp-btn" class="close-simbols-white">&#x292C;</button></div>
-            <p class="titles">Tell us something about yourself</p>
-            <p class="form-text mt-5">User name</p>
-            <p><input id="userId" name="userId" class="form-input" type="text" placeholder="(Required)" required></p>
-            <p class="form-text mt-5">Password</p>
-            <p><input id="userPass" name="userPass" class="form-input" type="password" placeholder="(Required)" required></p>
-            <p class="form-text mt-5">Name and Surname</p>
-            <p><input id="userName" name="userName" class="form-input" type="text" placeholder="(Required)" required></p>
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-signUp-btn" type="button" class="close-simbols-white">&#x292C;</button></div>
+            <p class="titles">Cuentanos algo sobre ti</p>
+            <p class="form-text mt-5">Nombre de usuario</p>
+            <p><input id="userId" name="userId" class="form-input" type="text" placeholder="(Obligatorio)" required></p>
+            <p class="form-text mt-5">Contraseña</p>
+            <p><input id="userPass" name="userPass" class="form-input" type="password" placeholder="(Obligatorio)" required></p>
+            <p class="form-text mt-5">Nombre y apellidos</p>
+            <p><input id="userName" name="userName" class="form-input" type="text" placeholder="(Obligatorio)" required></p>
             <p class="form-text mt-5">Email</p>
-            <p><input id="userEmail" name="userEmail" class="form-input" type="text" placeholder="(Required)" required></p>
-            <p class="form-text mt-5">Born date</p>
-            <p><input id="userBornDate" name="userBornDate" class="form-input" type="text" placeholder="(Required)" required></p>
-            <p class="form-text mt-5">Profile image</p>
+            <p><input id="userEmail" name="userEmail" class="form-input" type="text" placeholder="(example@email.domain)" required></p>
+            <p class="form-text mt-5">Fecha de nacimiento</p>
+            <p><input id="userBornDate" name="userBornDate" class="form-input" type="text" placeholder="(dd/mm/aaaa)" required></p>
+            <p class="form-text mt-5">Imagen de perfil</p>
             <div class="d-flex justify-content-around">
                     <input id="userProfileImage" name="userProfileImage" type="file"/>
-                    <button class="selectImage-btn" type="button"><label for="userProfileImage">Select Image</label></button>
-                    <p id="loadedImage" class="form-p"><img src="./images/common/ok-icon.png" alt="ok-icon"></p>
+                    <button class="selectImage-btn" type="button"><label for="userProfileImage">Seleccionar imagen</label></button>
             </div>
-            <p class="form-text mt-4"><input id="chckTerms" name="chckTerms" type="checkbox" value="true" required><label for="chckTerms" class ="termsText ml-2" >I have read and accept the terms and conditions</label></p>
-            <div class="form-text mt-2"><button id="reset-signUp-btn" class="special-btn">Reset form</button></div>
-            <div class="form-text mb-5 mt-3"><button id="submit-signUp-btn" class="standard-btn">Sign In</button></div>
+            <p id="loadedImage"><img class="img-fluid mt-4" width="3vw" src="./images/ok-icon.png" alt="ok-icon"></p>
+            <p class="form-text mt-4"><input id="chckTerms" name="chckTerms" type="checkbox" value="true" required><label for="chckTerms" class ="termsText ml-2" >He leido y acepto los terminos de uso</label></p>
+            <div class="form-text mt-2"><button id="reset-signUp-btn" class="special-btn" type="button">Reiniciar</button></div>
+            <div class="form-text mb-5 mt-3"><button id="submit-signUp-btn" class="standard-btn" type="button">Registro</button></div>
         </form>
+        <!-- Mensaje registro correcto -->
+        <div id="signUp-ok-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-signUp-ok-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">Te has registrado correctamente</p>    
+        </div>
+        <!-- Mensaje email duplicado -->
+        <div id="emailDup-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-emailDup-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">Ya existe un usuario con ese email</p>    
+        </div>
+        <!-- Mensaje userId duplicado -->
+        <div id="userIdDup-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-userIdDup-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">Ya existe un usuario con ese nombre</p>    
+        </div>
+        <!-- Mensaje userId no existe -->
+        <div id="badLogInId-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-badLogInId-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">El nombre de usuario no existe</p>    
+        </div>
+        <!-- Mensaje la contraseña no coincide -->
+        <div id="badLogIn-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-badLogIn-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">La contraseña no es correcta</p>    
+        </div>
+        <!-- Mensaje logIn ok -->
+        <div id="logInOk-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-logInOk-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/logIn-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">Has iniciado sesion</p>    
+        </div>
+        <!-- Confirmar cierre de sesion -->
+        <div id="logOut-confirmation-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-logOut-confirmation-btn" class="close-simbols-white">&#x292C;</button></div>
+            <p class="subTitles">¿Seguro que quieres cerrar sesion?</p>    
+            <div class="form-text"><button id="logOut-confirmation-btn" class="standard-btn mb-5">Cerrar sesion</button></div>
+        </div>
+        <!-- Mensaje confirmacion de cierre de sesion -->
+        <div id="logOut-confirmation-message-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-logOut-confirmation-message-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">Has cerrado sesion</p>    
+        </div>
+
+        
         <img src="/images/home.png" class="img-fluid" alt="Responsive image">
         <!--Pie de pagina-->
         <footer>

@@ -325,6 +325,20 @@ header {
     outline: none;
 }
 
+.subTitles{
+    text-align: center;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.75vw + 0.75em);
+    margin-top: calc(1vh + 1vw);
+    padding-bottom: 4%;
+    width: 100%;
+    color: black;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
 #logIn-form{
     position: absolute;
     display: none;
@@ -382,7 +396,7 @@ header {
     border-radius: calc(0.6vw + 0.6em);
     width: 30vw;
     background-color: #778899;
-    font-size: calc(0.6vw + 0.6em);
+    font-size: calc(0.7vw + 0.7em);
     margin: 0%;
     border: none;
     outline: none; 
@@ -391,14 +405,14 @@ header {
 .selectImage-btn, .selectImage-btn:focus{
     display: inline-block;
     color: white;
-    padding-right: 2.5%;
-    padding-left: 2.5%;
     padding-top: 2.5%;
-    padding-bottom: 1.5%;
+    padding-bottom: 2%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
     border-radius: calc(0.6vw + 0.6em);
     width: 30vw;
     background-color: #778899;
-    font-size: calc(0.6vw + 0.6em);
+    font-size: calc(0.7vw + 0.7em);
     margin: 0%;
     border: none;
     outline: none; 
@@ -415,6 +429,29 @@ header {
     outline: none;    
 }
 
+.messages{
+    position: fixed;
+    display: none;
+    margin-top: -3%;
+    width: 50vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 25vw;
+    z-index: 5;
+    align-items: center;
+    text-align: center;   
+}
+
+#logOut-btn {
+    display: none;
+}
+
+/* Formato de los errores de validacion */
+span.error{
+    margin-top: 4vh;
+    color: red; 
+    font-size: 0.7em; 
+}
 
 
 
