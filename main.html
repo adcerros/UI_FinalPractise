@@ -39,17 +39,24 @@
             <div class="d-flex justify-content-end mt-4 mr-3"><button id="close-options-btn" class="close-simbols">&#x292C;</button></div>
             <div id="secondary-options-div" class="col justify-content-around mt-5">
                     <div class="d-flex mb-5 ml-0">
-                        <img id="userImage" src="/images/avatar.jpeg" alt="" width="40%"  class="rounded-circle">
+                        <img id="userImage" src="/images/avatar.jpeg" alt="" width="110vw"  class="rounded-circle">
                     </div>
-                    <div class="col justify-content-around ml-4">
-                        <p class="options-text">Id usuario</p>
-                        <p class="options-text">Email</p>
-                        <p class="options-text">Born Date</p>
-                        <p class="options-text">Pass</p>
-                        <button class="changeInfo-btn">Change user information</button>
+                    <div class="col justify-content-around">
+                        <p id="username-options-bar"class="options-text">Id usuario</p>
+                        <p id="pass-options-bar" class="options-text">Pass</p>
+                        <p id="email-options-bar" class="options-text">Email</p>
+                        <p id="bornDate-options-bar"class="options-text">Born Date</p>
+                        <button id="changeInfo-btn" class="changeInfo-btn">Change user information</button>
                         <button class="terms-btn">Terms and conditions</button>
                     </div>
             </div>
+            <div id="secondary-options-unregistered-div" class="col justify-content-around mt-5">
+                <div class="col justify-content-around">
+                    <p id="registryRequired" class="subTitles-white"><button id="logIn-secondary-btn" class="logIn-secondary-btn" type="button">Inicia sesion o registrate para acceder a las opciones</button></p>
+                    <button class="terms-unregistered-btn">Terms and conditions</button>
+                </div>
+            </div>
+
         </div>
         <!-- POP UPS Y FORMULARIOS -->
         <!-- Div auxiliar para oscurecer el fondo -->
@@ -89,6 +96,50 @@
             <div class="form-text mt-2"><button id="reset-signUp-btn" class="special-btn" type="button">Reiniciar</button></div>
             <div class="form-text mb-5 mt-3"><button id="submit-signUp-btn" class="standard-btn" type="button">Registro</button></div>
         </form>
+        <!-- Formulario de cambio de datos personales -->
+        <div id="changeInfo-form" class="changeInfo-form">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-changeInfo-btn" type="button" class="close-simbols-white">&#x292C;</button></div>
+            <p class="titles mb-5">Adelante, modifica lo que quieras</p>
+            <img id="change-userImage" src="/images/avatar.jpeg" alt="" width="100vw"  class="rounded-circle">
+            <p id="changeInfo-userId" class="form-text mt-5">Nombre de usuario</p>
+            <button id="edit-userId-btn" class="edit-btn"><img src="/images/edit-icon.png" alt="" class="edit-icon"></button>
+            <hr class="solid">
+            <p id="changeInfo-userPass" class="form-text mt-4">Contraseña</p>
+            <button id="edit-userPass-btn" class="edit-btn"><img src="/images/edit-icon.png" alt="" class="edit-icon"></button>
+            <hr class="solid">
+            <p  id="changeInfo-userEmail" class="form-text mt-4">Email</p>
+            <button id="edit-userEmail-btn" class="edit-btn"><img src="/images/edit-icon.png" alt="" class="edit-icon"></button>
+            <hr class="solid">
+            <p class="form-text mt-5">Imagen de perfil</p>
+            <div class="d-flex justify-content-around">
+                    <input id="change-userProfileImage" name="change-userProfileImage" type="file"/>
+                    <button class="change-selectImage-btn" type="button"><label for="change-userProfileImage">Seleccionar imagen</label></button>
+            </div>
+            <p id="change-loadedImage"><img class="img-fluid mt-4" width="3vw" src="./images/ok-icon.png" alt="ok-icon"></p>
+            <div class="form-text mb-5 mt-3"><button id="change-submit-btn" class="standard-btn" type="button">Cerrar</button></div>
+        </div>
+        <!-- Formulario de cambio de id usuario -->
+        <form id="change-Id-form" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2 mb-3"><button id="close-changeId-btn"  type="button" class="close-simbols-white">&#x292C;</button></div>
+            <p class="subTitles">Introduce tu nuevo nombre de usuario</p>
+            <p class="form-text"><input id="newUserId" name="newUserId" class="form-input" type="text" placeholder="" required></p>
+            <p class="form-text mt-5"><button id="confirm-changeId-btn" class="standard-btn" type="button">Confirmar</button></p>       
+        </form>
+        <!-- Formulario de cambio de email usuario -->
+        <form id="change-email-form" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2 mb-3"><button id="close-changeEmail-btn"  type="button" class="close-simbols-white">&#x292C;</button></div>
+            <p class="subTitles">Introduce tu nuevo email</p>
+            <p class="form-text"><input id="newUserEmail" name="newUserEmail" class="form-input" type="text" placeholder="(example@email.domain)" required></p>
+            <p class="form-text mt-5"><button id="confirm-changeEmail-btn" class="standard-btn" type="button">Confirmar</button></p>       
+        </form>
+        <!-- Formulario de cambio contraseña -->
+        <form id="change-pass-form" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2 mb-3"><button id="close-changePass-btn"  type="button" class="close-simbols-white">&#x292C;</button></div>
+            <p class="subTitles">Introduce tu nueva contraseña</p>
+            <p class="form-text"><input id="newUserPass" name="newUserPass" class="form-input" type="text" placeholder="(Letras y numeros, 8 maximo)" required></p>
+            <p class="form-text mt-5"><button id="confirm-changePass-btn" class="standard-btn" type="button">Confirmar</button></p>       
+        </form>
+        <!-- ////////////////////////// MENSAJES ////////////////////////// -->
         <!-- Mensaje registro correcto -->
         <div id="signUp-ok-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-signUp-ok-btn" class="close-simbols-white">&#x292C;</button></div>
@@ -136,6 +187,25 @@
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-logOut-confirmation-message-btn" class="close-simbols-white">&#x292C;</button></div>
             <img src="/images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">Has cerrado sesion</p>    
+        </div>
+        <!-- Mensaje userId duplicado -->
+        <div id="change-userIdDup-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-change-userIdDup-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">Ya existe un usuario con ese nombre</p>    
+        </div>
+        <!-- Mensaje email duplicado -->
+        <div id="change-userEmailDup-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-change-userEmailDup-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">Ya existe un usuario con ese email</p>    
+        </div>
+
+        <!-- Confirmacion de cambios -->
+        <div id="confirmChanges-popUp" class="messages">
+            <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-confirmChanges-btn" class="close-simbols-white">&#x292C;</button></div>
+            <img src="/images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <p class="subTitles">Informacion actualizada</p>    
         </div>
 
         

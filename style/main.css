@@ -112,7 +112,7 @@ header {
 }
 
 #header-bar{
-    width: 100%;
+    width: 100vw;
     background-color: black;
     border: none;
 }
@@ -125,7 +125,7 @@ header {
     margin-right: 1%;
     margin-top: 1%;
     margin-bottom: 0%;
-    border: 0%;
+    border: none;
     background-color: black;
     outline: none; 
 }
@@ -138,7 +138,7 @@ header {
     margin-right: 1%;
     margin-top: 1%;
     margin-bottom: 0%;
-    border: 0%;
+    border: none;
     border-color: black;
     background-color: black;
     outline: none; 
@@ -150,10 +150,35 @@ header {
     background-color: black;
     position: absolute;
     width: 0%;
-    height: 100%;
+    height: 120vh;
     border-bottom-right-radius: calc(0.6vw + 0.6em);
     border: none;
     z-index: 1;
+}
+
+.edit-btn, .edit-btn:focus{
+    padding: 0%;
+    width: 12.5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 0%;
+    border: none;
+    background-color: white;
+    outline: none; 
+}
+
+.edit-icon {
+    width: calc(0.8vw + 0.8em);;
+}
+
+/* Separadores */
+.solid{
+    color: black;
+    margin-top: 3vw;
+    margin-bottom: 1vw;
+    border-color: darkgray;
+    border-width: 0.2vh;
+    width: 30vw;
 }
 
 .rounded-circle {
@@ -182,7 +207,8 @@ header {
 .options-text {
     font-family: 'Helvetica';
     color: white;
-    font-size: calc(0.5vw + 0.5em);
+    font-size: calc(0.55vw + 0.55em);
+    text-align: center;
 }
 
 #close-options-btn {
@@ -194,12 +220,11 @@ header {
     font-weight: bold;
     font-size: calc(0.6vw + 0.6em);
     color: white;
-    width: 80%;
+    width: 100%;
     background-color: black;
-    text-align: left;
+    text-align: center;
     border: none;
     outline: none;
-    margin-left: -3%;
     margin-top: 5%;
 }
 
@@ -208,16 +233,16 @@ header {
     font-weight: bold;
     font-size: calc(0.6vw + 0.6em);
     color: white;
-    width: 80%;
+    width: 100%;
     background-color: black;
-    text-align: left;
+    text-align: center;
     border: none;
     outline: none;
-    margin-left: -3%;
-    margin-top: 55%;
+    margin-top: 10vh;
 }
 
 .logIn-btn, .logIn-btn:focus{
+    display: none;
     font-family: 'Helvetica';
     font-weight: bold;
     font-size: calc(0.65vw + 0.65em);
@@ -262,8 +287,24 @@ header {
     z-index: 5;
 }
 
+
+#changeInfo-form{
+    width: 60vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 20vw;
+    margin-top: 8%;
+    position: absolute;
+    display: none;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+
 .form-text{
     font-family: 'Helvetica';
+    font-weight: lighter;
     font-size: calc(0.65vw + 0.65em);
     color: black;
     background-color: transparent;
@@ -307,7 +348,19 @@ header {
     display: none;
 }
 
+#change-loadedImage{
+    display: none;
+}
+
 #userProfileImage{
+    display: none;
+}
+
+#change-userProfileImage{
+    display: none;
+}
+
+.change-Id-form{
     display: none;
 }
 
@@ -316,7 +369,7 @@ header {
     text-align: center;
     font-family: 'Helvetica';
     font-weight: lighter;
-    font-size: calc(0.85vw + 0.85em);
+    font-size: calc(0.80vw + 0.8em);
     margin-top: calc(4vh + 2vw);
     width: 100%;
     color: black;
@@ -334,6 +387,21 @@ header {
     padding-bottom: 4%;
     width: 100%;
     color: black;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.subTitles-white{
+    text-align: center;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    text-decoration: underline solid white 2px;
+    font-size: calc(0.75vw + 0.75em);
+    margin-top: calc(1vh + 1vw);
+    padding-bottom: 4%;
+    width: 100%;
+    color: white;
     background-color: transparent;
     border: none;
     outline: none;
@@ -372,7 +440,7 @@ header {
 
 .termsText {
     font-family: 'Helvetica';
-    font-size: calc(0.5vw + 0.5em);
+    font-size: calc(0.55vw + 0.55em);
 }
 
 .standard-btn, .standard-btn:focus{
@@ -418,11 +486,41 @@ header {
     outline: none; 
 }
 
+
+.change-selectImage-btn, .change-selectImage-btn:focus{
+    display: inline-block;
+    color: white;
+    padding-top: 2.5%;
+    padding-bottom: 2%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    border-radius: calc(0.6vw + 0.6em);
+    width: 30vw;
+    background-color: #778899;
+    font-size: calc(0.7vw + 0.7em);
+    margin: 0%;
+    border: none;
+    outline: none; 
+}
+
 .signUp-btn, .signUp-btn:focus{
     color: black;
     font-style: bold;
     text-decoration: underline solid 2px;
     background-color: white;
+    font-size: calc(0.6vw + 0.6em);
+    padding-bottom: 3%;
+    border: none;
+    outline: none;    
+}
+
+.logIn-secondary-btn, .logIn-secondary-btn:focus{
+    color: white;
+    font-style: bold;
+    margin-right: 3vw;
+    margin-left: 3vw;
+    text-decoration: underline solid 2px;
+    background-color: transparent;
     font-size: calc(0.6vw + 0.6em);
     padding-bottom: 3%;
     border: none;
@@ -445,6 +543,33 @@ header {
 #logOut-btn {
     display: none;
 }
+
+#secondary-options-div{
+    display: none;
+}
+
+
+#secondary-options-unregistered-div{
+    display: none;
+}
+
+#registryRequired {
+    margin-top: 20vh;
+}
+
+.terms-unregistered-btn, .terms-unregistered-btn:focus{
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: calc(0.65vw + 0.65em);
+    color: white;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    border: none;
+    outline: none;
+    margin-top: 20vh;
+}
+
 
 /* Formato de los errores de validacion */
 span.error{
