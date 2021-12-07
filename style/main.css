@@ -195,8 +195,11 @@ header {
 .experiences-info-separator{
     color: white;
     border-color: white;
+    text-align: left;
+    align-self: start;
     border-width: 0.2vh;
-    width: 14vw;
+    margin-top: calc(1vh+2vw);
+    width: 16vw;
     border-radius: calc(0.6vw + 0.6em);
 }
 
@@ -494,6 +497,21 @@ header {
     font-weight: lighter;
     margin-top: calc(0.6vh + 0.3vw);
     font-size: calc(0.6vw + 0.5vh);
+    margin-bottom: calc(3vh + 6vw);
+    color: white;
+    padding: 0%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.text-experiences-info-white{
+    text-align: left;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    margin-top: calc(0.6vh + 0.3vw);
+    margin-left: 2vw;
+    font-size: calc(0.6vw + 0.5vh);
     color: white;
     padding: 0%;
     background-color: transparent;
@@ -502,9 +520,10 @@ header {
 }
 
 .experiences-text-min{
+    text-align: center;
     font-size: calc(0.55vw + 0.55vw);
     color: white;
-    margin-left: 1.5vw;
+    margin-left: 3.5vw;
     margin-top: 4.5vw;
     width: 8;
 }
@@ -819,30 +838,28 @@ span.error{
 }
 
 .experiences-options-btn {
-    width: 5vw;
+    width: 7vw;
     margin-right: 1vw;
     margin-left: 1vw;
     background-color: black;
     border-radius: calc(0.6vw + 0.6vh);
-    height: calc(20vh+20vw);
+    height: calc(10vh+20vw);
 }
 
 
-.myprofile-experiences-image-info {
+.myprofile-experiences-info {
     width: 20vw;
     margin-right: 1vw;
     margin-left: 1vw;
     border-radius: calc(0.6vw + 0.6vh);
     background-color: black;
-    height: calc(20vh+20vw);
+    height: calc(10vh+20vw);
 }
 
 .myprofile-experiences-image {
-    width: 40vw;
+    width: 50vw;
     border-radius: calc(0.6vw + 0.6vh);
-    height: calc(20vh+20vw);
-    max-width: 40vw;
-    min-width: 40vw;
+    height: calc(10vh+40vw);
 }
 
 
