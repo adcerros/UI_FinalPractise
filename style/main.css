@@ -181,9 +181,44 @@ header {
     width: 30vw;
 }
 
+.sections-separator{
+    color: black;
+    margin-top: 7vw;
+    margin-bottom: 5vw;
+    border-color: black;
+    border-width: 0.2vh;
+    width: 80vw;
+    border-radius: calc(0.6vw + 0.6em);
+}
+
+
+.experiences-info-separator{
+    color: white;
+    border-color: white;
+    border-width: 0.2vh;
+    width: 14vw;
+    border-radius: calc(0.6vw + 0.6em);
+}
+
+
 .rounded-circle {
     margin: auto;
     position: relative;    
+    
+}
+
+.rounded-circle-experiences {
+    padding: 3%;
+    background-color: black;
+    margin: auto;
+    position: relative;    
+    border-radius: calc(0.6vw + 0.6em);
+    width: (6vw + 3vh);
+    height: calc(5vh + 6vw);
+}
+
+.userImage-experiences{
+    background-color: black;
 }
 
 .close-simbols, .close-simbols:focus{
@@ -203,6 +238,21 @@ header {
     border: none;
     outline: none;
 }
+
+#filterExperiences-btn, #filterExperiences-btn:focus{
+    display: inline-block;
+    color: white;
+    padding: 0.7%;
+    border-radius: calc(0.6vw + 0.6em);
+    width: 15vw;
+    background-color: black;
+    font-size: calc(0.6vw + 0.6em);
+    border: none;
+    outline: none; 
+    margin: 0%;
+}
+
+
 
 .options-text {
     font-family: 'Helvetica';
@@ -313,6 +363,38 @@ header {
     outline: none;
 }
 
+#keywords {
+    margin-top: -0.6vh;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.6vw + 0.6em);
+    color: black;
+    width: 50vw;
+    height: calc(2.3vh + 1.3vw);
+    background-color: transparent;
+    border: 0.2vh solid black;
+    border-radius: calc(0.6vw + 0.6vh);
+    text-align: center;
+    outline-offset: 0px;
+    outline: none;
+}
+
+#keywords:focus{
+    margin-top: -0.6vh;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.75vw + 0.75em);
+    color: black;
+    width: 50vw;
+    height: calc(2.5vh + 1.5vw);
+    background-color: transparent;
+    border: 0.3vh solid black;
+    border-radius: calc(0.6vw + 0.6vh);
+    text-align: center;
+    outline-offset: 0px;
+    outline: none;
+}
+
 .form-input {
     margin-top: -0.6vh;
     font-family: 'Helvetica';
@@ -364,6 +446,10 @@ header {
     display: none;
 }
 
+#searchSection{
+    margin-top: calc(7vh + 7vw);
+}
+
 
 .titles{
     text-align: center;
@@ -371,9 +457,68 @@ header {
     font-weight: lighter;
     font-size: calc(0.80vw + 0.8em);
     margin-top: calc(4vh + 2vw);
-    width: 100%;
     color: black;
     background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.titles-white{
+    text-align: center;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    margin-top: calc(1.8vh + 0.8vw);
+    font-size: calc(1.2vw + 0.6vh);
+    color: white;
+    padding: 0%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.titles-experiences-white{
+    text-align: center;
+    font-family: 'Helvetica';
+    margin-top: calc(1.6vh + 0.7vw);
+    font-size: calc(0.8vw + 0.7vh);
+    color: white;
+    padding: 0%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.subtitles-experiences-white-aux{
+    text-align: center;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    margin-top: calc(0.6vh + 0.3vw);
+    font-size: calc(0.6vw + 0.5vh);
+    color: white;
+    padding: 0%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.experiences-text-min{
+    font-size: calc(0.55vw + 0.55vw);
+    color: white;
+    margin-left: 1.5vw;
+    margin-top: 4.5vw;
+    width: 8;
+}
+
+.userInfo-text-white{
+    text-align: center;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(1vw + 0.5vh);
+    width: 100%;
+    color: white;
+    background-color: transparent;
+    padding: 0%;
+    margin-top: calc(-0.6vh + -0.2vw);
     border: none;
     outline: none;
 }
@@ -456,19 +601,25 @@ header {
     margin: 0%;
 }
 
-
-.special-btn, .special-btn:focus{
+.add-btn, .add-btn:focus{
     display: inline-block;
     color: white;
-    padding: 2.5%;
+    padding: 1%;
     border-radius: calc(0.6vw + 0.6em);
     width: 30vw;
-    background-color: #778899;
-    font-size: calc(0.7vw + 0.7em);
-    margin: 0%;
+    background-color: black;
+    font-size: calc(0.6vw + 0.6em);
     border: none;
     outline: none; 
+    margin: 0%;
 }
+
+.add-icon{
+    background-color: black;
+    width: calc(1.5vw + 1.5vh);
+    margin-right: 2vw;
+}
+
 
 .selectImage-btn, .selectImage-btn:focus{
     display: inline-block;
@@ -579,9 +730,123 @@ span.error{
 }
 
 
+/* 
+ /////////////////////////// EXPERIENCIAS /////////////////// */
+
+.crop_square_collections, .crop_square_collections:focus {
+    background: black;
+    width: 20vw;
+    height: 10vw;
+    overflow: hidden;
+    color: white;
+    border-radius: calc(0.6vw + 0.6vh);
+    border: 0;
+    outline: none;  
+}
+
+.collections-images {
+    padding: 0;
+    margin: 0;
+    display: block;
+    height: 12vw;
+    width: 11vw;
+    margin-top: -1vh;
+    border-radius: calc(0.6vw + 0.6vh);
+    border: 0;
+    outline: none; 
+}
+
+
+.add_collection {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 2%;
+    margin-bottom:5%;
+    cursor: pointer;
+}
+
+
+/*****Usuario****/
+.square {
+    width: 10vw;
+    height: 10vw;
+    background: black;
+    border-radius: calc(0.6vw + 0.6vh);
+    overflow: hidden;
+}
+
+.user_rectangle {
+    width: 30vw;
+    height: calc(5vh + 6vw);
+    background: black;
+    color: white;
+    border-radius: calc(0.6vw + 0.6vh);
+    overflow: hidden;
+}
+
+.profile_photo {
+    text-align: center;
+    object-fit: cover;
+    /* margin-left: auto;
+    margin-right: auto; */
+    width: 50%;
+}
+
+/* Texto single experiencia */
+.texto_single_experience {
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.img_single_experience {
+    width: 150%;
+    margin-top: 5%;
+    margin-left: 10%;
+}
 
 
 
+.experiences-text-aux{
+    font-size: calc(0.55vw + 0.55vw);
+    color: white;
+    margin-top: 4.5vw;
+    width: 8;
+}
+
+.experiences-options-btn {
+    width: 5vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    background-color: black;
+    border-radius: calc(0.6vw + 0.6vh);
+    height: calc(20vh+20vw);
+}
+
+
+.myprofile-experiences-image-info {
+    width: 20vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: black;
+    height: calc(20vh+20vw);
+}
+
+.myprofile-experiences-image {
+    width: 40vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    height: calc(20vh+20vw);
+    max-width: 40vw;
+    min-width: 40vw;
+}
+
+
+/* Cambio del estilo de los inputs en los distintos navegadores */
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: grey;

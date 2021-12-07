@@ -20,11 +20,11 @@
             <!-- Botones superiores (options, logo y login) -->
             <nav id="header-bar">
                 <nav id="main-bar" class="navbar navbar-expand-lg navbar-black bg-black  justify-content-between">
-                    <button id="options-btn" class="header-btn"><img src="/images/options.png" alt="" width="3%" class="img-fluid"></button>
-                    <button id="options-btn-selected" class="options-btn-selected"><img src="/images/options-selected.png" alt="" width="3%" class="img-fluid"></button>
-                    <button class="header-btn"><img src="/images/logo.png" alt="" width="100vw"  class="img-fluid"></button>
-                    <button id="logIn-btn" class="header-btn"><img src="/images/logIn.png" alt="" width="3%"  class="img-fluid"></button>
-                    <button id="logOut-btn" class="header-btn"><img src="/images/logOut-icon.png" alt="" width="3%"  class="img-fluid"></button>
+                    <button id="options-btn" class="header-btn"><img src="./images/options.png" alt="" width="3%" class="img-fluid"></button>
+                    <button id="options-btn-selected" class="options-btn-selected"><img src="./images/options-selected.png" alt="" width="3%" class="img-fluid"></button>
+                    <button class="header-btn"><img src="./images/logo.png" alt="" width="100vw"  class="img-fluid"></button>
+                    <button id="logIn-btn" class="header-btn"><img src="./images/logIn.png" alt="" width="3%"  class="img-fluid"></button>
+                    <button id="logOut-btn" class="header-btn"><img src="./images/logOut-icon.png" alt="" width="3%"  class="img-fluid"></button>
                 </nav>
                  <!-- Botones inferiores (experiences, top y plan a trip) -->
                 <nav id="btns-bar"class="navbar navbar-expand-lg navbar-black bg-black d-flex justify-content-around">
@@ -39,7 +39,7 @@
             <div class="d-flex justify-content-end mt-4 mr-3"><button id="close-options-btn" class="close-simbols">&#x292C;</button></div>
             <div id="secondary-options-div" class="col justify-content-around mt-5">
                     <div class="d-flex mb-5 ml-0">
-                        <img id="userImage" src="/images/avatar.jpeg" alt="" width="110vw"  class="rounded-circle">
+                        <img id="userImage" src="./images/avatar.jpeg" alt="" width="110vw"  class="rounded-circle">
                     </div>
                     <div class="col justify-content-around">
                         <p id="username-options-bar"class="options-text">Id usuario</p>
@@ -100,15 +100,15 @@
         <div id="changeInfo-form" class="changeInfo-form">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-changeInfo-btn" type="button" class="close-simbols-white">&#x292C;</button></div>
             <p class="titles mb-5">Adelante, modifica lo que quieras</p>
-            <img id="change-userImage" src="/images/avatar.jpeg" alt="" width="100vw"  class="rounded-circle">
+            <img id="change-userImage" src="./images/avatar.jpeg" alt="" width="100vw"  class="rounded-circle">
             <p id="changeInfo-userId" class="form-text mt-5">Nombre de usuario</p>
-            <button id="edit-userId-btn" class="edit-btn"><img src="/images/edit-icon.png" alt="" class="edit-icon"></button>
+            <button id="edit-userId-btn" class="edit-btn"><img src="./images/edit-icon.png" alt="" class="edit-icon"></button>
             <hr class="solid">
             <p id="changeInfo-userPass" class="form-text mt-4">Contraseña</p>
-            <button id="edit-userPass-btn" class="edit-btn"><img src="/images/edit-icon.png" alt="" class="edit-icon"></button>
+            <button id="edit-userPass-btn" class="edit-btn"><img src="./images/edit-icon.png" alt="" class="edit-icon"></button>
             <hr class="solid">
             <p  id="changeInfo-userEmail" class="form-text mt-4">Email</p>
-            <button id="edit-userEmail-btn" class="edit-btn"><img src="/images/edit-icon.png" alt="" class="edit-icon"></button>
+            <button id="edit-userEmail-btn" class="edit-btn"><img src="./images/edit-icon.png" alt="" class="edit-icon"></button>
             <hr class="solid">
             <p class="form-text mt-5">Imagen de perfil</p>
             <div class="d-flex justify-content-around">
@@ -143,37 +143,37 @@
         <!-- Mensaje registro correcto -->
         <div id="signUp-ok-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-signUp-ok-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">Te has registrado correctamente</p>    
         </div>
         <!-- Mensaje email duplicado -->
         <div id="emailDup-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-emailDup-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">Ya existe un usuario con ese email</p>    
         </div>
         <!-- Mensaje userId duplicado -->
         <div id="userIdDup-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-userIdDup-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">Ya existe un usuario con ese nombre</p>    
         </div>
         <!-- Mensaje userId no existe -->
         <div id="badLogInId-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-badLogInId-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">El nombre de usuario no existe</p>    
         </div>
         <!-- Mensaje la contraseña no coincide -->
         <div id="badLogIn-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-badLogIn-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">La contraseña no es correcta</p>    
         </div>
         <!-- Mensaje logIn ok -->
         <div id="logInOk-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-logInOk-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/logIn-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/logIn-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">Has iniciado sesion</p>    
         </div>
         <!-- Confirmar cierre de sesion -->
@@ -185,31 +185,99 @@
         <!-- Mensaje confirmacion de cierre de sesion -->
         <div id="logOut-confirmation-message-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-logOut-confirmation-message-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">Has cerrado sesion</p>    
         </div>
         <!-- Mensaje userId duplicado -->
         <div id="change-userIdDup-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-change-userIdDup-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">Ya existe un usuario con ese nombre</p>    
         </div>
         <!-- Mensaje email duplicado -->
         <div id="change-userEmailDup-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-change-userEmailDup-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/error.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">Ya existe un usuario con ese email</p>    
         </div>
 
         <!-- Confirmacion de cambios -->
         <div id="confirmChanges-popUp" class="messages">
             <div class="d-flex justify-content-end mt-2 mr-2"><button id="close-confirmChanges-btn" class="close-simbols-white">&#x292C;</button></div>
-            <img src="/images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
+            <img src="./images/signUp-ok.jpg" class="img-fluid" width="200vw" alt="Responsive image">
             <p class="subTitles">Informacion actualizada</p>    
         </div>
+        <!-- //////////////////////// SECCION EXPERIENCIAS /////////////////////////////////////////// -->
+        <div class="my_experiences" id="my_experiences">
+            <!-- Buscador -->
+            <section id="searchSection"> 
+                <p class="titles mt-5"> Busca personas y experiencias</p>
+                <p class="form-text mt-2">
+                    <input id="keywords" type="search" placeholder="(Usuarios, experiencias ...)">
+                    <button id="filterExperiences-btn" type="button" value="Buscar">Buscar</button>
+                </p>
+                <div id ="searchingForDiv" class="experiencesText" style="display:none; margin-top: -5%; width: 100%; margin-bottom: -2%;">
+                    <p class="experiencesText" id="searchingForText" style="display:inline-block; margin-left: -15%;">Filtrando por:</p>
+                    <button id="clssearchingForBtn" class="cross-p" type="button" style="display:inline-block; margin-left: -5%">&#x292C;</button>
+                </div>
+            </section>
 
-        
-        <img src="/images/home.png" class="img-fluid" alt="Responsive image">
+            <!-- Usuario -->
+            <section class="mt-5"> 
+                <hr class="sections-separator">
+                <p class="titles mt-5">Tu perfil</p>
+            </section>
+            <div class="d-flex justify-content-around  mt-4">
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex justify-content-center align-items-center"><img src="images/profile_photo2.png" class="rounded-circle-experiences" alt="profile_photo"></div>
+                        <div class="d-flex align-items-center mr-3 ml-3">
+                            <div class="user_rectangle">
+                                <p class="titles-white">Nombre de usuario</p>
+                                <p class="userInfo-text-white">Informacion del usuario</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!-- Colecciones -->
+            <div class="col mt-4">
+                <p class="titles">Tus colecciones</strong></p>
+                <div class="d-flex justify-content-center mt-4" width="100vw">
+                    <button class="crop_square_collections mr-2 ml-2">
+                        <div class="row">
+                            <div class="d-flex"><img class="collections-images" src="images/coleccion1.jpeg" alt="coleccion"></div>
+                            <div class="d-flex"><p class="experiences-text-min">Collection title</p></div>
+                        </div>
+                    </button>
+                    <button class="crop_square_collections mr-2 ml-2">
+                        <div class="row">
+                            <div class="d-flex"><img class="collections-images" src="images/coleccion2.jpeg" alt="coleccion"></div>
+                            <div class="d-flex"><p class="experiences-text-min">Collection title</p></div>
+                        </div>
+                    </button>
+                    <button class="crop_square_collections mr-2 ml-2">
+                        <div class="row">
+                            <div class="d-flex"><img class="collections-images" src="images/coleccion3.jpg" alt="coleccion"></div>
+                            <div class="d-flex"><p class="experiences-text-min">Collection title</p></div>
+                        </div>
+                    </button>
+                </div>
+                <div class="d-flex justify-content-around mt-5"><button id="addCollection-btn" class="add-btn" type="button" value="Buscar"><img src="./images/add-icon.png" alt="" class="add-icon">Añadir coleccion</button></div>
+            </div>
+            <!-- Experiencias -->
+            <p class="titles">Experiencias</strong></p>
+            <div id="experience-00" class="d-flex justify-content-center mt-4 mb-5">
+                <div class="experiences-options-btn">
+                </div>  
+                <img src="images/experiencias.jpeg" class="myprofile-experiences-image mr-1 ml-1" alt="experiencias">     
+                <div class="myprofile-experiences-image-info align-items-center ">  
+                    <p class="titles-experiences-white">Experience title</p>   
+                    <p class="subtitles-experiences-white-aux">Esty dasda</p> 
+                    <hr class="experiences-info-separator">
+                    <p class="subtitles-experiences-white-aux">Esty dasda</p>  
+                    <p class="subtitles-experiences-white-aux">Esty dasda</p>                    
+                </div>  
+            </div>
+        </div>
         <!--Pie de pagina-->
         <footer>
         </footer>       
