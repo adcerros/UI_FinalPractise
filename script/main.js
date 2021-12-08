@@ -4,9 +4,10 @@ $(document).ready(function(){
 
     // Pone el header en modo registrado o sin registrar
     $(document).ready(setHeader());
-
+    
     // Cambio a la seccion experiences
     $(".experiences-btn").click(function() {
+        $(".ranking").hide();
         paddingAnimationOff("top");
         paddingAnimationOff("plan");
         $(this).removeClass("experiences-btn");
@@ -16,10 +17,12 @@ $(document).ready(function(){
         $("#plan-btn").removeClass("plan-btn-selected");
         $("#plan-btn").addClass("plan-btn");
         paddingAnimationOn("experiences");
+        $(".my_experiences").show();
     });
 
     // Cambio a la seccion top
     $(".top-btn").click(function() {
+        $(".my_experiences").hide();
         paddingAnimationOff("experiences");
         paddingAnimationOff("plan");
         $("#experiences-btn").removeClass("experiences-btn-selected");
@@ -29,11 +32,14 @@ $(document).ready(function(){
         $("#plan-btn").removeClass("plan-btn-selected");
         $("#plan-btn").addClass("plan-btn");
         paddingAnimationOn("top");
-
+        $(".ranking").show();
+        $(".ranking").attr("style", "display:grid")
     });
 
     // Cambio a la seccion plan a trip
     $(".plan-btn").click(function() {
+        $(".my_experiences").hide();
+        $(".ranking").hide();
         paddingAnimationOff("experiences");
         paddingAnimationOff("top");
         $("#experiences-btn").removeClass("experiences-btn-selected");
@@ -52,6 +58,9 @@ $(document).ready(function(){
         $("#options-btn").hide();
         $("#options-btn-selected").show();
     });
+
+    
+  
 
     //Cierre del menu opciones mediante el boton opciones
     $("#options-btn-selected").click(function() {
@@ -72,6 +81,14 @@ $(document).ready(function(){
         $("#auxDiv-popUp").show();
         $("#logIn-form").show();
     });
+
+    
+    //Apertura del logIn desde la seccion experiencias
+    $("#logToShow").click(function() {
+        $("#auxDiv-popUp").show();
+        $("#logIn-form").show();
+    });
+
 
     //Apertura del logIn desde el menu options
     $("#logIn-secondary-btn").click(function() {
@@ -601,9 +618,9 @@ function optionsAnimationOff (){
 ////// REGISTRO ///////////
 //Configuracion de las cookies de registro
 function setSignUpCookie(userId, userPass, userName, userEmail, userBornDate){
-    let userData = { "pass": userPass, "name": userName, "email": userEmail, "bornDate": userBornDate, "numberOfExperiences": 0};
+    let userData = { "pass": userPass, "name": userName, "email": userEmail, "bornDate": userBornDate, "numberOfExperiences": 0, "likes": 0};
     Cookies.set(String(userEmail) + "-" + "userEmail", userEmail, {secure:true});
-    Cookies.set(String(userId), JSON.stringify(userData), {secure:true});   
+    Cookies.set(String(userId), JSON.stringify(userData), {secure:true});
 }
 
 //Configuracion de las experiencias
@@ -651,9 +668,14 @@ function hideUserProfile(){
     // Se oculta la interfaz del usuario
     $("#secondary-options-div").hide();
     $("#logOut-btn").hide();
+    $("#logToShow").show();
     $("#secondary-options-unregistered-div").show();
     $("#logIn-btn").show();
     Cookies.set("currentUser", null, {secure:true});
+    //////////////////// experiences
+    $("#userProfile-div").hide();
+    $("#addCollection-btn-div").hide();
+    $("#addExperience-btn-div").hide();
 }
 
 //Cambia la interfaz y pasa a modo usuario
@@ -669,11 +691,16 @@ function showUserProfile(userId){
     }
     $("#secondary-options-unregistered-div").hide();
     $("#logIn-btn").hide();
+    $("#logToShow").hide();
     $("#logOut-btn").show();
     Cookies.set("currentUser", userId, {secure:true});
     loadOptionsRegistered()
     // Se oculta la interfaz estandar
     // Se muestra la interfaz del usuario
+    //////////////////// experiences
+    $("#userProfile-div").show();
+    $("#addCollection-btn-div").show();
+    $("#addExperience-btn-div").show();
 }
 
 // Se carga el menu de opciones con la informacion del usuario
@@ -755,11 +782,17 @@ function setHeader() {
     currentUser = Cookies.get("currentUser");
     if (currentUser == "null" | currentUser == null | currentUser == undefined){
         $("#logOut-btn").hide();
+        $("#addExperience-btn-div").hide();
+        $("#addCollection-btn-div").hide();
         $("#logIn-btn").show();
+        $("#logToShow").show();
     }
     else{
         $("#logIn-btn").hide();
+        $("#logToShow").hide();
         $("#logOut-btn").show();
+        $("#addExperience-btn-div").show();
+        $("#addCollection-btn-div").show();
     }
 }
 
@@ -810,4 +843,161 @@ function changeUserPass(newUserPass) {
     //Se modifica la cookie
     userData.pass = newUserPass
     Cookies.set(String(userId), JSON.stringify(userData), { secure: true });
+}
+
+
+// RANKING
+function ranking() {
+    // Guardaremos en un string todas las cookies, teniendo como aspecto un diccionario
+    var cookies = getAllCookies()
+    console.log(typeof(cookies))
+    // Si no hay niguna cookie, entonces no avanzamos mas
+    if(Object.keys(cookies).length === 0){
+        return -1
+    }
+    // En esta lista guardaremos las cookies en forma de diccionario, para ello utilizaremos el for de debajo
+    var exps = []
+    for(var name in cookies) {
+        //console.log(cookies[name])
+        // Guardamos en nuestro diccionario solamente a los usuarios con todas sus características
+        if(cookies[name].search("{") !== -1){
+            // El string que contiene a cada usuario lo parseamos como un diccionario y lo guardamos en la lista exps
+            exps.push(JSON.parse(cookies[name]))
+            //console.log(aux)
+        }
+       
+    }
+
+    //console.log(exps)
+
+    let elements = []
+    let container = document.querySelector('#for_slick_slider')
+    var photo_user
+    // Ponemos cada dato nuevo a una lista auxiliar
+    for(let i = 0; i < exps.length; i++){
+        photo_user = search_user_image(exps[i].name)
+        elements.push(
+            {
+                photo: photo_user,
+                like: exps[i].likes,
+                phrase: exps[i].name
+            }
+        )
+    }
+    
+    // Ordenamos la lista de los usuarios
+    elements.sort((a, b) => {return b.like - a.like;})
+    
+    var photo, phrase, like, users
+    var row = document.querySelector(".row")
+    container.innerHTML = ''
+    // Creamos tantos div como usuarios haya
+    for(var i=0; i < elements.length; i++){
+        // Asignamos los datos para cada usuario
+        var aux = row.cloneNode(true)
+        container.appendChild(aux)
+    }
+    
+    users = container.getElementsByClassName("row")
+    for(var i = 0; i < users.length; i++){
+        phrase = users[i].getElementsByTagName("p")
+        like = users[i].getElementsByClassName("like")
+        photo = users[i].getElementsByTagName("img")
+        phrase[0].innerHTML = elements[i].phrase
+        like[0].innerHTML = elements[i].like
+        photo[0].src = elements[i].photo
+        // Solo mostramos a los tres primeros usuarios
+        if(i > 2){
+            users[i].style.display = "none"
+        }
+    }
+
+    check_status_buttons(users, users.length)
+}
+
+function move_ranking(dir){
+    // Cogemos todo el ranking
+    let container = document.querySelector('#for_slick_slider')
+    // Solo habrá que hacer el movimiento de los usuarios una vez
+    var once = false
+    // Seleccionamos a todos los usuarios
+    let users = document.getElementsByClassName("row")
+    let max_lenght = users.length
+    // Recorremos a todos los usuarios hasta encontrar al primer visible
+    for(var i = 0; i < max_lenght; i++){
+        // Buscamos le primer elemento que sea visible y no se ha movido ninguno
+        if(users[i].style.display !== 'none' && !once){
+            // En caso de que no sea el primer elemento, mostraremos el elemento que se encuentra en la
+            // parte superior
+            if(dir == 'up' && i-1 >= 0){
+                users[i-1].style.display = 'flex'
+                users[i].style.display = 'flex'
+                users[i+1].style.display = 'flex'
+                users[i+2].style.display = 'none'
+                once = true
+            }
+            // En caso de que no sea el ultimo elemento, mostraremos el elemento que se encuentra en la
+            // parte inferior
+            if(dir== 'down' && i+3 < max_lenght){
+                users[i].style.display = 'none'
+                users[i+1].style.display = 'flex'
+                users[i+2].style.display = 'flex'
+                users[i+3].style.display = 'flex'
+                once = true
+            }
+        }
+    }
+    check_status_buttons(users, max_lenght)
+}
+
+// Este metodo nos ayudara a obtener todas las cookies de nuestro documento en forma de string
+function getAllCookies(){
+    var cookies = { };
+    // Siempre que existan cookies se procedera a hacerlo
+    if (document.cookie && document.cookie != '') {
+        var split = document.cookie.split(';');
+        for (var i = 0; i < split.length; i++) {
+            var name_value = split[i].split("=");
+            name_value[0] = name_value[0].replace(/^ /, '');
+            cookies[decodeURIComponent(name_value[0])] = decodeURIComponent(name_value[1]);
+        }
+    }
+
+    return cookies;
+}
+
+
+///// RANKING //////////////////////////
+// Este metodo nos ayudara a buscar la imagen del usuario
+function search_user_image(userId){
+    let userProfileImage = localStorage.getItem(userId + "-" +"profileImg");
+    if (userProfileImage == "null" | userProfileImage == null | userProfileImage == undefined){
+        localStorage.setItem(userId + "-" +"profileImg", "null");
+        return "./images/avatar.jpeg";
+    }
+    return userProfileImage
+}
+
+// Verificamos si hay más de un usuario o no, para mostrar las flechas o no
+function check_status_buttons(users, max_lenght){
+    var button_up = document.querySelector("#arrow-button-up");
+    var button_down = document.querySelector("#arrow-button-down");
+    // En caso de que se muestre el primer elemento, entonces significa que no se puede subir mas
+    if(users[0].style.display == 'flex' || users[0].style.display == ''){
+        button_up.style.color = 'gray';
+        button_up.style.cursor = 'default';
+    }
+    else{
+        button_up.style.color = 'black';
+        button_up.style.cursor = 'pointer';
+    }
+    // En caso de que se muestre el ultimo elemento, entonces significa que no se puede bajar
+    if(users[max_lenght-1].style.display == 'flex' || users[max_lenght-1].style.display == ''){
+        button_down.style.color = 'gray';
+        button_down.style.cursor = 'default';
+    }
+    else{
+        button_down.style.color = 'black';
+        button_down.style.cursor = 'pointer';
+    }
 }

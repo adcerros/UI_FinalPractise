@@ -111,6 +111,19 @@ header {
     outline: none; 
 }
 
+.special-btn, .special-btn:focus{
+    display: inline-block;
+    color: white;
+    padding: 2.5%;
+    border-radius: calc(0.6vw + 0.6em);
+    width: 30vw;
+    background-color: #778899;
+    font-size: calc(0.7vw + 0.7em);
+    margin: 0%;
+    border: none;
+    outline: none; 
+}
+
 #header-bar{
     width: 100vw;
     background-color: black;
@@ -176,9 +189,10 @@ header {
     color: black;
     margin-top: 3vw;
     margin-bottom: 1vw;
-    border-color: darkgray;
+    border-color: black;
     border-width: 0.2vh;
     width: 30vw;
+    margin-left: 15vw;
 }
 
 .sections-separator{
@@ -189,18 +203,28 @@ header {
     border-width: 0.2vh;
     width: 80vw;
     border-radius: calc(0.6vw + 0.6em);
+    margin-left: 10vw;
 }
 
 
 .experiences-info-separator{
     color: white;
     border-color: white;
-    text-align: left;
-    align-self: start;
-    border-width: 0.2vh;
-    margin-top: calc(1vh+2vw);
-    width: 16vw;
+    border-width: 0.1vh;
+    width: 70%;
     border-radius: calc(0.6vw + 0.6em);
+}
+
+#userProfile-div{
+ display: none;
+}
+
+#addCollection-btn-div{
+    display: none;
+}
+
+#addExperience-btn-div{
+    display: none;
 }
 
 
@@ -255,6 +279,9 @@ header {
     margin: 0%;
 }
 
+.coupleExperiences-div{
+    width: 100vw;
+}
 
 
 .options-text {
@@ -450,7 +477,7 @@ header {
 }
 
 #searchSection{
-    margin-top: calc(7vh + 7vw);
+    margin-top: calc(4vh + 4vw);
 }
 
 
@@ -465,6 +492,21 @@ header {
     border: none;
     outline: none;
 }
+
+#logToShow{
+    width: 100vw;
+    text-align: center;
+    font-family: 'Helvetica';
+    text-decoration: underline;
+    font-size: calc(0.80vw + 0.8em);
+    margin-top: calc(4vh + 4vw);
+    color: black;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: none;
+}
+
 
 .titles-white{
     text-align: center;
@@ -482,10 +524,9 @@ header {
 .titles-experiences-white{
     text-align: center;
     font-family: 'Helvetica';
-    margin-top: calc(1.6vh + 0.7vw);
     font-size: calc(0.8vw + 0.7vh);
     color: white;
-    padding: 0%;
+    padding-top: calc(1vh + 1vw);
     background-color: transparent;
     border: none;
     outline: none;
@@ -495,9 +536,7 @@ header {
     text-align: center;
     font-family: 'Helvetica';
     font-weight: lighter;
-    margin-top: calc(0.6vh + 0.3vw);
     font-size: calc(0.6vw + 0.5vh);
-    margin-bottom: calc(3vh + 6vw);
     color: white;
     padding: 0%;
     background-color: transparent;
@@ -509,11 +548,25 @@ header {
     text-align: left;
     font-family: 'Helvetica';
     font-weight: lighter;
-    margin-top: calc(0.6vh + 0.3vw);
-    margin-left: 2vw;
     font-size: calc(0.6vw + 0.5vh);
     color: white;
     padding: 0%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.text-experiences-comments{
+    text-align: left;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.6vw + 0.5vh);
+    color: white;
+    padding: 0%;
+    margin-top: 0%;
+    margin-bottom: 0%;
     background-color: transparent;
     border: none;
     outline: none;
@@ -524,7 +577,7 @@ header {
     font-size: calc(0.55vw + 0.55vw);
     color: white;
     margin-left: 3.5vw;
-    margin-top: 4.5vw;
+    margin-top: 1.2vh;
     width: 8;
 }
 
@@ -633,11 +686,28 @@ header {
     margin: 0%;
 }
 
+.change-experiences-btn, .change-experiences-btn:focus{
+    margin-top: calc(0.8vh + 0.8vw);
+    color: white;
+    border-radius: calc(0.6vw + 0.6em);
+    background-color: black;
+    font-size: calc(0.6vw + 0.6em);
+    border: none;
+    outline: none; 
+}
+
 .add-icon{
     background-color: black;
     width: calc(1.5vw + 1.5vh);
     margin-right: 2vw;
 }
+
+
+.options-icon{
+    background-color: black;
+    width: calc(1vw + 1vh);
+}
+
 
 
 .selectImage-btn, .selectImage-btn:focus{
@@ -833,33 +903,31 @@ span.error{
 .experiences-text-aux{
     font-size: calc(0.55vw + 0.55vw);
     color: white;
-    margin-top: 4.5vw;
     width: 8;
 }
 
 .experiences-options-btn {
-    width: 7vw;
-    margin-right: 1vw;
-    margin-left: 1vw;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: calc(0.5vh + 0.5vw);
+    width: 35vw;
+    height: calc(3vw + 3vh);
     background-color: black;
     border-radius: calc(0.6vw + 0.6vh);
-    height: calc(10vh+20vw);
 }
 
 
 .myprofile-experiences-info {
-    width: 20vw;
-    margin-right: 1vw;
-    margin-left: 1vw;
+    margin-top: calc(0.5vh + 0.5vw);
+    padding: 0;
+    width: 35vw;
     border-radius: calc(0.6vw + 0.6vh);
     background-color: black;
-    height: calc(10vh+20vw);
 }
 
 .myprofile-experiences-image {
-    width: 50vw;
+    width: 35vw;
     border-radius: calc(0.6vw + 0.6vh);
-    height: calc(10vh+40vw);
 }
 
 
@@ -905,3 +973,150 @@ span.error{
    font-weight: lighter;
 }
 
+
+
+
+
+
+/**********/
+/*RANKING*/
+/*********/
+
+.ranking{
+    justify-content: center;
+	width: auto;
+    padding: 5%;
+    display: none;
+    justify-items: center;
+}
+
+#for_slick_slider {
+    width: calc(30vw + 30em);
+}
+
+#userImage {
+    width: calc(3.5vw + 3em);
+}
+
+.arrow{
+    position: relative;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.arrow i {
+    font-size: 50px;
+}
+
+#arrow-button-up, #arrow-button-down{
+    color: gray;
+}
+
+.row {
+	position: relative;
+    align-items: center;
+    justify-items: center;
+}
+
+.row-profile {
+	position: relative;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 15%;
+	line-height: 45px;
+}
+
+.row-text {
+    position: relative;
+	display: flex;
+    justify-content: center;
+    border-radius: calc(0.6vw + 0.6em);
+    border-style: groove;
+    border-color: black;
+    font-size: calc(1vw + 1em);
+    outline: none; 
+	width: 70%;
+	line-height: 40px;
+}
+
+.phrase {
+    padding: 10px;   
+}
+
+.row-like {
+	display: inline-flex;
+    justify-content: space-evenly;
+	width: 15%;
+}
+
+.like {
+    font-size: 30px;
+}
+
+#thumps-like {
+    font-size: 36px;
+}
+
+/***************************/
+/*ADAPTACIÓN PARA LA TABLET*/
+/***************************/
+
+@media screen and (max-width:810px){
+    .like {
+        font-size: 25px;
+    }
+
+    .row-text {
+        justify-content: space-around;
+    }
+    
+    #thumps-like {
+        font-size: 30px;
+    }
+}
+
+/**************************/
+/*ADAPTACIÓN PARA EL MÓVIL*/
+/**************************/
+
+@media screen and (max-width:600px){
+    #userImage {
+        width: calc(2.5vw + 2em);
+    }
+
+    .row {
+        flex-wrap: nowrap;
+    }
+
+    .ranking {
+        padding: 5%;
+        display: none;
+    }
+
+    .row-profile {
+        width: 20%;
+    }
+
+    .row-text {
+	    line-height: 20px;
+        font-size: calc(0.8vw + 0.8em);
+    }
+
+    .row-profile p {
+        font-size: 10px;
+    }
+
+    .like {
+        font-size: 15px;
+    }
+
+    #thumps-like {
+        font-size: 15px;
+    }
+
+    #for_slick_slider {
+        width: calc(12vw + 12em);
+    }
+}
