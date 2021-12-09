@@ -5,6 +5,30 @@ $(document).ready(function(){
     // Pone el header en modo registrado o sin registrar
     $(document).ready(setHeader());
     
+    $("#mainLogo-btn").click(function() {
+        $("#ranking").hide();
+        $("#messsage-ranking").hide();
+        $("#plan-div").hide();
+        $("#colecciones-naturaleza").hide();
+        $("#colecciones-aventura").hide();
+        $("#colecciones-ciudad").hide();
+        $("#single-experience-amazonas").hide();
+        $("#single-experience-newyork").hide();
+        $("#single-experience-japon").hide();
+        $("#single-experience-tanzania").hide();
+        $("#single-experience-australia").hide();
+        paddingAnimationOff("top");
+        paddingAnimationOff("plan");
+        $(".experiences-btn").addClass("experiences-btn-selected");
+        $(".experiences-btn").removeClass("experiences-btn");
+        $("#top-btn").removeClass("top-btn-selected");
+        $("#top-btn").addClass("top-btn");
+        $("#plan-btn").removeClass("plan-btn-selected");
+        $("#plan-btn").addClass("plan-btn");
+        paddingAnimationOn("experiences");
+        $(".my_experiences").show();
+    });
+
     // Cambio a la seccion experiences
     $(".experiences-btn").click(function() {
         $("#ranking").hide();
@@ -716,7 +740,6 @@ $(document).ready(function(){
         messages: {
             experienceTitle: "<br>Por favor, introduce el titulo de la experiencia",
             experienceDescription: "<br>Por favor, introduce la descripcion de la experiencia",
-            experiencePlace: "<br>Por favor, introduce el lugar de la experiencia",
         },
         // Estilo de los mensajes de error
         errorElement : 'span'  
@@ -823,30 +846,6 @@ function setSignUpCookie(userId, userPass, userName, userEmail, userBornDate){
     Cookies.set(String(userId), JSON.stringify(userData), {secure:true});
 }
 
-//Configuracion de las experiencias
-// Se recibe el titulo, una lista de imagenes y la descripcion
-// Formato de la lista de experiencias [userId, [lista de experiencias]]
-// Formato de las experiencias [title, [listaImagenes], descripcion, [listaComentarios], numeroLikes]
-function createExperience(title, images, description){
-    let userId = Cookies.get("currentUser");
-    let comentaryList = [];
-    let newExperience = [title , images, description, comentaryList, 0];
-    var experiences = getExperiences();
-    let userExperiences = getUserExperiences(userId);
-    userExperiences[1].append(newExperience);
-    experiences.append(listOfExperiences);
-    localStorage.setItem("experiences", experiences);
-}
-
-//Funcion para obtener las experiencias (se crea la lista si no existe)
-function getExperiences (){
-    let experiences = JSON.parse(localStorage.getItem("experiences"));
-    // Si no existe la lista de experiencias se crea
-    if (experiences == null | experiences == undefined | experiences == "null" | experiences == ""){
-        experiences = [];
-    }
-    return experiences;
-}
 
 // Funcion para obtener la lista de experiencias de un usuario (se crea la lista si no existe)
 function getUserExperiences (userId){
@@ -866,6 +865,7 @@ function getUserExperiences (userId){
 function hideUserProfile(){
     // Se muestra la interfaz estandar
     // Se oculta la interfaz del usuario
+    $("#userExperiences").empty();
     $("#secondary-options-div").hide();
     $("#logOut-btn").hide();
     $("#logToShow").show();
@@ -876,6 +876,9 @@ function hideUserProfile(){
     $("#userProfile-div").hide();
     $("#addCollection-btn-div").hide();
     $("#addExperience-btn-div").hide();
+    $("#coupleExperiences-div-test-special").show();
+
+
 }
 
 //Cambia la interfaz y pasa a modo usuario
@@ -986,6 +989,7 @@ function setHeader() {
         $("#addCollection-btn-div").hide();
         $("#logIn-btn").show();
         $("#logToShow").show();
+        $("#coupleExperiences-div-test-special").show();
     }
     else{
         $("#logIn-btn").hide();
@@ -1315,55 +1319,130 @@ function addExperience() {
     let userId = Cookies.get("currentUser");
     let userCookie = Cookies.get(userId);
     let userData = JSON.parse(userCookie);
-
-    let {experienceTitle, experienceImage, experiencePlace, experienceDescription } = getExperienceData();
+    let {experienceTitle, experienceImage} = getExperienceData();
+    var experienceLikes = 0;
+    var experienceComments = 0;
+    var reader = new FileReader();
     let numberOfBigDiv = (userData.numberOfExperiences) % 2;
     let realNumberBigDiv = Math.floor(userData.numberOfExperiences / 2);
-    alert(userData.numberOfExperiences + " - " + numberOfBigDiv + " - " + realNumberBigDiv);
     if (numberOfBigDiv == 0){
       $("#userExperiences").prepend("<div id='coupleExperiences-div-" + realNumberBigDiv  + "'" +  "class='d-flex justify-content-center mt-5'>");
     }
-
-
-      $("#coupleExperiences-div-" + realNumberBigDiv).prepend("<div id=experience-" + userData.numberOfExperiences + "class='d-flex mr-1 ml-1'><div class='col'><img src='images/amazonas2.jpg' class='myprofile-experiences-image' onclick='showExperiencesPopUp()'>" + 
-            "<div class='experiences-options-btn'>" + 
-                    "<button id=" + userId + "-experience-" + userData.numberOfExperiences + "-like-btn" + "class='change-experiences-btn' type=button value=Buscar><img src='./images/like-icon.png'  class='options-icon'></button>" + 
-                    "<button id=" + userId + "-experience-" + userData.numberOfExperiences + "-comment-btn" + "class='change-experiences-btn' type=button value=Buscar><img src='./images/comment-icon.png' class='options-icon  mr-2 ml-2'></button>" + 
+    if (experienceImage == null | experienceImage == undefined | experienceImage == "") {
+      $("#coupleExperiences-div-" + realNumberBigDiv).prepend("<div id=" + userId + "-experience-" + userData.numberOfExperiences + " class='d-flex mr-1 ml-1'><div class='col'><img src='images/amazonas2.jpg' class='myprofile-experiences-image' onclick='showExperiencesPopUp()'>" + 
+                "<div class='experiences-options-btn'>" + 
+                        "<button id=" + userId + "-experience-" + userData.numberOfExperiences + "-like-btn " + "class='change-experiences-btn' type=button value=Buscar  onclick='addLike(" + userData.numberOfExperiences +");'>" + "<img src='./images/like-icon.png'  class='options-icon'></button>" + 
+                        "<button id=" + userId + "-experience-" + userData.numberOfExperiences + "-comment-btn " + "class='change-experiences-btn' type=button value=Buscar><img src='./images/comment-icon.png' class='options-icon  mr-2 ml-2'></button>" + 
+                        "<button class='change-experiences-btn' type=button value=Buscar><img src='./images/delete-icon.png' class='options-icon' onclick=deleteExperience(" + userData.numberOfExperiences + ")></button>" + 
+                "</div>" + 
+                "<div class='myprofile-experiences-info'>" + 
+                    "<p class='titles-experiences-white'>" + experienceTitle + "</p>" + 
+                    "<div class='col ml-2'>"   + 
+                        "<p class='text-experiences-info-white mb-2 ml-1' id=" + userId + "-experience-" + userData.numberOfExperiences + "-experienceLikes " +  "class=text-experiences-comments" +"> Numero de me gusta: "+ experienceLikes + " "+ "</p>" + 
+                        "<p class='text-experiences-info-white mb-2 ml-1' id=" + userId + "-experience-" + userData.numberOfExperiences + "-experienceComments " +  "class=text-experiences-comments" +"> Numero de comentarios: "+ experienceComments + " "+ "</p>" + 
+                    "</div>" + 
+                    "<hr class='experiences-info-separator'>" + 
+                    "<div id=" + userId + "-experience-" + userData.numberOfExperiences + "experienceCommentsText" + "class='col'>" + 
+                        "<p class='text-experiences-info-white ml-4'> Comentarios</p>" + 
+                        "<p class='text-experiences-info-white ml-4' id=" + userId + "-experience-" + userData.numberOfExperiences + "comment-00"  + "> Muestra de comentarios "+ "</p>" + 
+                        "<p class='text-experiences-info-white ml-4 mb-5' id=" + userId + "-experience-" + userData.numberOfExperiences + "comment-01" + "> Muestra de comentarios "+ "</p>" + 
+                    "</div>" +
+                    "<div class='d-flex'></div>" +
+                "</div>"  +   
+            "</div>" +
+        "</div>");
+        saveExperience(userId, experienceTitle, "./images/amazonas2.jpg")
+    }
+    else{
+        reader.onloadend = function () {
+                    $("#coupleExperiences-div-" + realNumberBigDiv).prepend("<div id=experience-" + userData.numberOfExperiences + "class='d-flex mr-1 ml-1'><div class='col'><img src= "+ reader.result +" class='myprofile-experiences-image' onclick='showExperiencesPopUp()'>" + 
+                    "<div class='experiences-options-btn'>" + 
+                    "<button id=" + userId + "-experience-" + userData.numberOfExperiences + "-like-btn " + "class='change-experiences-btn' type=button value=Buscar  onclick='addLike(" + userData.numberOfExperiences +");'>" + "<img src='./images/like-icon.png'  class='options-icon'></button>" + 
+                    "<button id=" + userId + "-experience-" + userData.numberOfExperiences + "-comment-btn " + "class='change-experiences-btn' type=button value=Buscar><img src='./images/comment-icon.png' class='options-icon  mr-2 ml-2'></button>" + 
                     "<button class='change-experiences-btn' type=button value=Buscar><img src='./images/delete-icon.png' class='options-icon' onclick=deleteExperience(" + userData.numberOfExperiences + ")></button>" + 
             "</div>" + 
             "<div class='myprofile-experiences-info'>" + 
                 "<p class='titles-experiences-white'>" + experienceTitle + "</p>" + 
                 "<div class='col ml-2'>"   + 
-                    "<p class='text-experiences-info-white'>10 likes</p>" + 
-                    "<p class='text-experiences-info-white'>5 comentarios</p>" + 
+                    "<p class='text-experiences-info-white mb-2 ml-1' id=" + userId + "-experience-" + userData.numberOfExperiences + "-experienceLikes " +  "class=text-experiences-comments" +"> Numero de me gusta: "+ experienceLikes + " "+ "</p>" + 
+                    "<p class='text-experiences-info-white mb-2 ml-1' id=" + userId + "-experience-" + userData.numberOfExperiences + "-experienceComments " +  "class=text-experiences-comments" +"> Numero de comentarios: "+ experienceComments + " "+ "</p>" + 
                 "</div>" + 
                 "<hr class='experiences-info-separator'>" + 
-                "<div id='experiences-test-00-coments' class='col mb-4 ml-2'>" + 
-                    "<p class='text-experiences-info-white mb-2'>Comentarios</p>" + 
-                    "<p id='experiences-test-00-coment-00' class='text-experiences-comments'>Muestra de comentarios</p> " +  
-                  "<p id='experiences-test-00-coment-00' class='text-experiences-comments'>Muestra de comentarios</p>" +
+                "<div id=" + userId + "-experience-" + userData.numberOfExperiences + "experienceCommentsText" + "class='col'>" + 
+                    "<p class='text-experiences-info-white ml-4'> Comentarios</p>" + 
+                    "<p class='text-experiences-info-white ml-4' id=" + userId + "-experience-" + userData.numberOfExperiences + "comment-00"  + "> Muestra de comentarios "+ "</p>" + 
+                    "<p class='text-experiences-info-white ml-4 mb-5' id=" + userId + "-experience-" + userData.numberOfExperiences + "comment-01" + "> Muestra de comentarios "+ "</p>" + 
                 "</div>" +
                 "<div class='d-flex'></div>" +
             "</div>"  +   
         "</div>" +
-    "</div>");
+        "</div>");
+        saveExperience(userId, experienceTitle, reader.result)
+        };
+        reader.readAsDataURL(experienceImage);
+    }
     
     userData.numberOfExperiences++;
     Cookies.set(String(userId), JSON.stringify(userData), { secure: true });
 
 
 }
+function saveExperience(userId, experienceTitle, experienceImage){
+    let experiences = JSON.parse(localStorage.getItem(userId));
+    // Si no existe la lista de experiencias se crea
+    if (experiences == null | experiences == undefined | experiences == "null" | experiences == ""){
+        experiences = [];
+        experiences.push([experienceTitle, experienceImage, 0, 0])
+        localStorage.setItem(userId, JSON.stringify(experiences));
+    }
+    else{
+        experiences.push([experienceTitle, experienceImage, 0, 0])
+        localStorage.setItem(userId, JSON.stringify(experiences));
+    }
+}
+
+
+function addLike(numberOfExperience){
+    let userId = Cookies.get("currentUser");
+    let userData = JSON.parse(Cookies.get(userId));
+    let experiences = JSON.parse(localStorage.getItem(userId));
+    userData.likes = userData.likes + 1;
+    Cookies.set(String(userId), JSON.stringify(userData), { secure: true });
+    experiences[numberOfExperience][2] = parseInt(experiences[numberOfExperience][2]) + 1;
+    localStorage.setItem(userId, JSON.stringify(experiences));
+    document.getElementById(userId + "-experience-" + numberOfExperience + "-experienceLikes").innerHTML = "Me gusta: "+ experiences[numberOfExperience][2];
+}
+
+
+function addComment(numberOfExperience){
+    let userId = Cookies.get("currentUser");
+    let experiences = JSON.parse(localStorage.getItem(userId));
+    experiences[numberOfExperience][2] = parseInt(experiences[numberOfExperience][2]) + 1;
+    localStorage.setItem(userId, JSON.stringify(experiences));
+    document.getElementById(userId + "-experience-" + numberOfExperience + "-experienceLikes").innerHTML = "Me gusta: "+ experiences[numberOfExperience][2];
+}
+
+function deleteExperience(numberOfExperience){
+    let userId = Cookies.get("currentUser");
+    let userData = JSON.parse(Cookies.get(userId));
+    let experiences = JSON.parse(localStorage.getItem(userId));
+    userData.numberOfExperiences = userData.numberOfExperiences - 1;
+    userData.likes = userData.likes -  parseInt(experiences[numberOfExperience][2]);
+    Cookies.set(String(userId), JSON.stringify(userData), { secure: true });
+    experiences.splice(numberOfExperience, 1)
+    localStorage.setItem(userId, JSON.stringify(experiences));
+    document.getElementById(userId + "-experience-" + numberOfExperience).remove();
+    $("#auxDiv-popUp").show();
+    $("#experienceDeleted").show();
+}
+
 
 // Lectura de los datos del usuario al insertar experiencias
 function getExperienceData() {
-    let userId = Cookies.get("currentUser");
-    let userCookie = Cookies.get(userId);
-    let userData = JSON.parse(userCookie);
     let experienceTitle = $("#experienceTitle").val();
-    let experienceDescription = $("#experienceDescription").val();
-    let experiencePlace = $("#experiencePlace").val();
     let experienceImage = document.getElementById("experienceImage").files[0];
-    return {experienceTitle, experienceImage, experiencePlace, experienceDescription};
+    $("#coupleExperiences-div-test-special").hide();
+    return {experienceTitle, experienceImage};
 }
 
 function showExperiencesPopUp(){

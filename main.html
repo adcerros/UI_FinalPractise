@@ -23,7 +23,7 @@
                 <nav id="main-bar" class="navbar navbar-expand-lg navbar-black bg-black  justify-content-between">
                     <button id="options-btn" class="header-btn"><img src="./images/options.png" alt="" width="3%" class="img-fluid"></button>
                     <button id="options-btn-selected" class="options-btn-selected"><img src="./images/options-selected.png" alt="" width="3%" class="img-fluid"></button>
-                    <button class="header-btn"><img src="./images/logo.png" alt="" width="100vw"  class="img-fluid"></button>
+                    <button id="mainLogo-btn" class="header-btn"><img src="./images/logo.png" alt="" width="100vw"  class="img-fluid"></button>
                     <button id="logIn-btn" class="header-btn"><img src="./images/logIn.png" alt="" width="3%"  class="img-fluid"></button>
                     <button id="logOut-btn" class="header-btn"><img src="./images/logOut-icon.png" alt="" width="3%"  class="img-fluid"></button>
                 </nav>
@@ -303,57 +303,60 @@
              <p class="titles">Experiencias</strong></p>
             <!-- Primera línea de experiencias -->
             <div id="userExperiences">
-              <div id="coupleExperiences-div-00" class="d-flex justify-content-center mt-5">
-                  <div id="experiences-test-00" class="d-flex mr-1 ml-1"> 
-                      <div class="col">
-                          <img src="images/amazonas2.jpg" class="myprofile-experiences-image" alt="experiencias" id="experiences-amazonas" onclick="showExperiencesPopUp()" > 
-                          <!-- Botonera  -->
-                          <div class="experiences-options-btn">
-                                  <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/like-icon.png" alt="" class="options-icon"></button>
-                                  <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/comment-icon.png" alt="" class="options-icon"></button>
-                                  <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/delete-icon.png" alt="" class="options-icon"></button>
-                          </div>  
-                          <div class="myprofile-experiences-info"> 
-                              <p class="titles-experiences-white">Amazonas</p> 
-                              <div class="col ml-2">   
-                                  <p class="text-experiences-info-white">10 likes</p> 
-                                  <p class="text-experiences-info-white">5 comentarios</p> 
-                              </div>
-                              <hr class="experiences-info-separator">
-                              <div id="experiences-test-00-coments" class="col mb-4 ml-2">
-                                  <p class="text-experiences-info-white mb-2">Comentarios</p>
-                                  <p id="experiences-test-00-coment-00" class="text-experiences-comments">Muestra de comentarios</p>    
-                                  <p id="experiences-test-00-coment-00" class="text-experiences-comments">Muestra de comentarios</p>   
-                              </div>   
-                              <div class="d-flex"></div>
-                          </div>     
-                      </div>
-                  </div>
-                  <div id="experiences-test-01" class="d-flex mr-1 ml-1"> 
-                      <div class="col">
-                          <img src="images/australia.jpg" class="myprofile-experiences-image" alt="experiencias" id="experiences-australia"> 
-                          <div class="experiences-options-btn">
-                                  <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/like-icon.png" alt="" class="options-icon"></button>
-                                  <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/comment-icon.png" alt="" class="options-icon"></button>
-                                  <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/delete-icon.png" alt="" class="options-icon"></button>
-                          </div>  
-                          <div class="myprofile-experiences-info"> 
-                              <p class="titles-experiences-white">Sidney</p> 
-                              <div class="col ml-2">   
-                                  <p class="text-experiences-info-white">10 likes</p> 
-                                  <p class="text-experiences-info-white">5 comentarios</p> 
-                              </div>
-                              <hr class="experiences-info-separator">
-                              <div id="experiences-test-01-coments" class="col mb-4 ml-2">
-                                  <p class="text-experiences-info-white mb-2">Comentarios</p>
-                                  <p id="experiences-test-01-coment-00" class="text-experiences-comments">Muestra de comentarios</p>    
-                                  <p id="experiences-test-01-coment-01" class="text-experiences-comments">Muestra de comentarios</p>   
-                              </div>   
-                              <div class="d-flex"></div>
-                          </div>     
-                      </div>
-                  </div>
-              </div>
+
+            </div>
+            <div id="coupleExperiences-div-test-special">
+                <div id="coupleExperiences-div-test" class="d-flex justify-content-center mt-5">
+                    <div id="experiences-test" class="d-flex mr-1 ml-1"> 
+                        <div class="col">
+                            <img src="images/amazonas2.jpg" class="myprofile-experiences-image" alt="experiencias" id="experiences-amazonas" onclick="showExperiencesPopUp()" > 
+                            <!-- Botonera  -->
+                            <div class="experiences-options-btn">
+                                    <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/like-icon.png" alt="" class="options-icon"></button>
+                                    <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/comment-icon.png" alt="" class="options-icon"></button>
+                                    <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/delete-icon.png" alt="" class="options-icon"></button>
+                            </div>  
+                            <div class="myprofile-experiences-info"> 
+                                <p class="titles-experiences-white">Amazonas</p> 
+                                <div class="col ml-2">   
+                                    <p class="text-experiences-info-white">10 likes</p> 
+                                    <p class="text-experiences-info-white">5 comentarios</p> 
+                                </div>
+                                <hr class="experiences-info-separator">
+                                <div id="experiences-test-coments" class="col mb-4 ml-2">
+                                    <p class="text-experiences-info-white mb-2">Comentarios</p>
+                                    <p id="experiences-test-coment-00" class="text-experiences-comments">Muestra de comentarios</p>    
+                                    <p id="experiences-test-coment-00" class="text-experiences-comments">Muestra de comentarios</p>   
+                                </div>   
+                                <div class="d-flex"></div>
+                            </div>     
+                        </div>
+                    </div>
+                    <div id="experiences-test-01" class="d-flex mr-1 ml-1"> 
+                        <div class="col">
+                            <img src="images/australia.jpg" class="myprofile-experiences-image" alt="experiencias" id="experiences-australia"> 
+                            <div class="experiences-options-btn">
+                                    <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/like-icon.png" alt="" class="options-icon"></button>
+                                    <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/comment-icon.png" alt="" class="options-icon"></button>
+                                    <button id="" class="change-experiences-btn" type="button" value="Buscar"><img src="./images/delete-icon.png" alt="" class="options-icon"></button>
+                            </div>  
+                            <div class="myprofile-experiences-info"> 
+                                <p class="titles-experiences-white">Sidney</p> 
+                                <div class="col ml-2">   
+                                    <p class="text-experiences-info-white">10 likes</p> 
+                                    <p class="text-experiences-info-white">5 comentarios</p> 
+                                </div>
+                                <hr class="experiences-info-separator">
+                                <div id="experiences-test-01-coments" class="col mb-4 ml-2">
+                                    <p class="text-experiences-info-white mb-2">Comentarios</p>
+                                    <p id="experiences-test-01-coment-00" class="text-experiences-comments">Muestra de comentarios</p>    
+                                    <p id="experiences-test-01-coment-01" class="text-experiences-comments">Muestra de comentarios</p>   
+                                </div>   
+                                <div class="d-flex"></div>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="addExperience-btn-div">
                 <div class="d-flex justify-content-around mt-5 mb-5"><button id="addExperience-btn" class="add-btn" type="button" value="Buscar"><img src="./images/add-icon.png" alt="" class="add-icon">Añadir experiencia</button></div>
