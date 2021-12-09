@@ -17,6 +17,14 @@ header {
     min-width: 30px;
 }
 
+#loadedExperienceImage {
+  display: none;
+}
+
+#experienceImage {
+  display: none;
+}
+
 
 .header-btn, .header-btn:focus{
     color: white;
@@ -45,6 +53,19 @@ header {
 }
 
 .experiences-btn, .experiences-btn:focus{
+    color: white;
+    padding: 2.5%;
+    border-radius: calc(0.6vw + 0.6em);
+    width: 30%;
+    background-color: black;
+    font-size: calc(0.7vw + 0.7em);
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: none;
+    outline: none; 
+}
+
+.experiencesSecond-btn, .experiencesSecond-btn:focus{
     color: white;
     padding: 2.5%;
     border-radius: calc(0.6vw + 0.6em);
@@ -267,16 +288,18 @@ header {
 }
 
 #filterExperiences-btn, #filterExperiences-btn:focus{
-    display: inline-block;
-    color: white;
-    padding: 0.7%;
-    border-radius: calc(0.6vw + 0.6em);
-    width: 15vw;
-    background-color: black;
-    font-size: calc(0.6vw + 0.6em);
-    border: none;
-    outline: none; 
-    margin: 0%;
+  display: inline-block;
+  color: white;
+  padding: 0.7%;
+  border-radius: calc(0.6vw + 0.6em);
+  width: 15vw;
+  background-color: black;
+  font-size: calc(0.6vw + 0.6em);
+  outline: none; 
+  margin: 0%;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .coupleExperiences-div{
@@ -401,12 +424,72 @@ header {
     color: black;
     width: 50vw;
     height: calc(2.3vh + 1.3vw);
+    background-color: white;
+    border: 0.2vh solid black;
+    border-radius: calc(0.6vw + 0.6vh);
+    text-align: center;
+    outline-offset: 0px;
+    outline: none;
+}
+
+
+
+#keywordsSecond {
+    margin-top: -0.6vh;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.6vw + 0.6em);
+    color: black;
+    width: 50vw;
+    height: calc(2.3vh + 1.3vw);
     background-color: transparent;
     border: 0.2vh solid black;
     border-radius: calc(0.6vw + 0.6vh);
     text-align: center;
     outline-offset: 0px;
     outline: none;
+}
+
+
+#keywordsSecond:focus {
+    margin-top: -0.6vh;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.6vw + 0.6em);
+    color: black;
+    width: 50vw;
+    height: calc(2.3vh + 1.3vw);
+    background-color: transparent;
+    border: 0.2vh solid black;
+    border-radius: calc(0.6vw + 0.6vh);
+    text-align: center;
+    outline-offset: 0px;
+    outline: none;
+}
+
+.experiencesText{
+    word-wrap: break-word;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.65em + 0.65vw);
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 5%;
+    text-align: center;
+    color: white;
+}
+
+#experiencesSecond-btn, #experiencesSecond-btn:focus{
+    display: inline-block;
+    color: white;
+    padding: 0.7%;
+    border-radius: calc(0.6vw + 0.6em);
+    width: 15vw;
+    background-color: black;
+    font-size: calc(0.6vw + 0.6em);
+    border: none;
+    outline: none; 
+    margin: 0%;
 }
 
 #keywords:focus{
@@ -695,6 +778,8 @@ header {
     border: none;
     outline: none; 
 }
+  
+
 
 .add-icon{
     background-color: black;
@@ -928,6 +1013,7 @@ span.error{
 .myprofile-experiences-image {
     width: 35vw;
     border-radius: calc(0.6vw + 0.6vh);
+    cursor: pointer;
 }
 
 
@@ -973,7 +1059,12 @@ span.error{
    font-weight: lighter;
 }
 
-
+.row {
+	position: relative;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+}
 
 
 
@@ -982,61 +1073,72 @@ span.error{
 /*RANKING*/
 /*********/
 
-.ranking{
-    justify-content: center;
-	width: auto;
-    padding: 5%;
-    display: none;
-    justify-items: center;
+#messsage-ranking {
+  justify-content: center;
+  display: none;
+  padding: 30% 33%;
+  justify-items: center;
+  font-style: italic;
+  
+}
+
+#ranking{
+  justify-content: center;
+  width: auto;
+  display: none;
+  padding: calc(10vw + 5em);
+  justify-items: center;
 }
 
 #for_slick_slider {
-    width: calc(30vw + 30em);
+  width: calc(30vw + 30em);
 }
 
 #userImage {
-    width: calc(3.5vw + 3em);
+  width: calc(3.5vw + 3em);
 }
 
 .arrow{
-    position: relative;
-    padding: 2%;
-    display: flex;
-    align-items: center;
+  position: relative;
+  padding: 2%;
+  display: flex;
+  align-items: center;
 }
 
 .arrow i {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 #arrow-button-up, #arrow-button-down{
-    color: gray;
+  color: gray;
 }
 
-.row {
+.row-ranking {
 	position: relative;
-    align-items: center;
-    justify-items: center;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  padding: calc(0.6vw + 0.6em) 0;
 }
 
 .row-profile {
 	position: relative;
 	display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 	width: 15%;
 	line-height: 45px;
 }
 
 .row-text {
-    position: relative;
-	display: flex;
-    justify-content: center;
-    border-radius: calc(0.6vw + 0.6em);
-    border-style: groove;
-    border-color: black;
-    font-size: calc(1vw + 1em);
-    outline: none; 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: calc(0.6vw + 0.6em);
+  border-style: groove;
+  border-color: black;
+  font-size: calc(1vw + 1em);
+  outline: none; 
 	width: 70%;
 	line-height: 40px;
 }
@@ -1056,25 +1158,28 @@ span.error{
 }
 
 #thumps-like {
-    font-size: 36px;
+  font-size: 36px;
 }
-
 /***************************/
 /*ADAPTACIÓN PARA LA TABLET*/
 /***************************/
 
 @media screen and (max-width:810px){
-    .like {
-        font-size: 25px;
-    }
+  .like {
+      font-size: 25px;
+  }
 
-    .row-text {
-        justify-content: space-around;
-    }
-    
-    #thumps-like {
-        font-size: 30px;
-    }
+  .row-text {
+      justify-content: space-around;
+  }
+  
+  #thumps-like {
+      font-size: 30px;
+  }
+
+  #messsage-ranking {
+    padding: 35% 12.5%;
+  }
 }
 
 /**************************/
@@ -1082,41 +1187,947 @@ span.error{
 /**************************/
 
 @media screen and (max-width:600px){
-    #userImage {
-        width: calc(2.5vw + 2em);
+  #userImage {
+      width: calc(2.5vw + 2em);
+  }
+
+  .row-ranking {
+      flex-wrap: nowrap;
+  }
+
+  .ranking {
+      padding: 5%;
+      display: block;
+  }
+
+  .row-profile {
+      width: 20%;
+  }
+
+  .row-text {
+    line-height: 20px;
+      font-size: calc(0.8vw + 0.8em);
+  }
+
+  .row-profile p {
+      font-size: 10px;
+  }
+
+  .row-like {
+    display: inline-flex;
+    justify-content: space-between;
+    width: calc(2vw + 5vh);
+    align-items: center;
+  }
+
+  .like {
+      font-size: 15px;
+  }
+
+  #thumps-like {
+      font-size: 15px;
+  }
+
+  #for_slick_slider {
+      width: calc(25vw + 12em);
+  }
+
+  #messsage-ranking {
+    font-size: calc(1vw + 1em);
+    text-align: justify;
+    text-align-last: center;
+    padding: 60% 10%;
+  }
+}
+.plan-div{
+  display: none;
+}
+/*MAPA*/
+.map{
+    width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+.map path{
+    width: 100%;
+    margin: auto;
+    stroke-width: 0.1%;
+}
+#resaltar:hover{
+    fill: coral;
+    cursor: url("https://downloads.totallyfreecursors.com/cursor_files/colombia.ani"), url("https://downloads.totallyfreecursors.com/thumbnails/colombia.gif"), auto;
+}
+
+.experience{
+    width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+ #section-map svg {
+    width: 100%;
+    margin: auto;
+    height: auto;
+
+ }
+  #AF:hover {
+      fill: rgba(7, 37, 14, 0.541);
+      cursor: pointer;
+      
+  }
+  #EU:hover {
+    fill: rgba(34, 61, 41, 0.541);
+    cursor: pointer;
+    
+}
+  #AS:hover {
+    fill: rgba(16, 73, 29, 0.541);
+    cursor: pointer;
+    
+}
+  #OC:hover {
+    fill: rgba(71, 75, 71, 0.363);
+    cursor: pointer;
+    
+}
+  #AM:hover {
+    fill: rgba(74, 134, 88, 0.541);
+    cursor: pointer;
+    
+}
+/*codigo para scroll horizaontal*/
+.wrapper::-webkit-scrollbar{
+    width: 0;
+}
+
+.wrapper{
+    max-height: 20%;
+    border: 1px solid #ddd;
+    display: flex;
+    overflow-x: auto;
+}
+
+.wrapper .item{
+    align-items: center;
+    height: auto;
+    line-height: 20%;
+    text-align: center;
+    background-color: #ddd;
+    margin-right: 2px ;
+}
+/*codigo para imagenes animadas*/
+*{margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;}
+    
+    .contenedor{
+        width: 17vw;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .contenedor figure{
+       position:relative;
+       flex-direction: row;
+        height: 10vw;
+        cursor: pointer;
+        width: 13vw;
+        overflow: hidden;
+        border-radius: 6px;
+        box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+    }
+    .contenedor figure img{
+        width: 13vw;
+        height: 10vw;
+        transition: all 400ms ease-out;
+        will-change: transform;
+    }
+    .contenedor figure .capa{
+        position: absolute;
+        top: 0;
+        width:13vw;
+        height:  10vw;
+        background: rgba(11, 123, 151, 0.671);
+        transition: all 400ms ease-out;
+        opacity: 0;
+        visibility: hidden;
+       text-align: center;
+    }
+    .contenedor figure:hover > .capa {
+        opacity: 1;
+        visibility: visible;
+    }
+    .contenedor figure:hover > .capa h3{
+        margin-top: 4vw;
+        margin-bottom: 1vw;
+    }
+    .contenedor figure:hover > img{
+        transform: scale(1.3);
+    }
+    .contenedor figure .capa h3{
+        color: #fff;
+        font-weight: 400;
+        font-size: 1.3vw;
+        margin-bottom: 12vw;
+        transition: all 400ms ease-out;
+         margin-top: 3vw;
+    }
+    .contenedor figure .capa p{
+        color: #fff;
+        font-size: 0.8vw;
+        line-height: 1.5;
+        width: 13vw;
+        max-width: 220px;
+        margin: auto;
     }
 
-    .row {
-        flex-wrap: nowrap;
+    .band{
+        margin: auto;
+        width: 100%;
+        background-color: black;
+        margin-top: 0.8vw;
+        margin-bottom: 3vw;
+
+
+    }
+    .band figure {
+        position:relative;
+        align-self: center;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+
     }
 
-    .ranking {
-        padding: 5%;
-        display: none;
+    .band2{
+        margin: auto;
+        width: 100%;
+        background-color: black;
+
     }
 
-    .row-profile {
-        width: 20%;
+    /*CONTENEDOR IMAGEN GRANDE*/
+    *{margin: 0;padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;}
+        
+        .contenedor2{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .contenedor2 figure{
+           position:relative;
+            height: 22vw;
+            cursor: pointer;
+            width: 40vw;
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+        }
+        .contenedor2 figure img{
+            width: 40vw;
+            transition: all 400ms ease-out;
+            will-change: transform;
+        }
+        .contenedor2 figure .capa{
+            position: absolute;
+            top: 0;
+            width: 40vw;
+            height: 22vw;
+            background: rgba(0,103,123,0.7);
+            transition: all 400ms ease-out;
+            opacity: 0;
+            visibility: hidden;
+           text-align: center;
+        }
+        .contenedor2 figure:hover > .capa {
+            opacity: 1;
+            visibility: visible;
+        }
+        .contenedor2 figure:hover > .capa h3{
+            margin-top: 8vw;
+            margin-bottom: 3vw;
+        }
+        .contenedor2 figure:hover > img{
+            transform: scale(1.3);
+        }
+        .contenedor2 figure .capa h3{
+            color: #fff;
+            font-weight: 5vw;
+            font-size: 2vw;
+            margin-bottom: 8vw;
+            transition: all 400ms ease-out;
+             margin-top: 3vw;
+        }
+        .contenedor2 figure .capa p{
+            color: #fff;
+            font-size: 1vw;
+            line-height: 1.5;
+            width: 100%;
+            max-width: 220px;
+            margin: auto;
+        }
+    /*buscador de planatrip*/
+        .buscador{
+            border-radius: 6vw;
+            width: 50vw;
+            margin-left: 12.5vw;
+            height: 10vh;
+         
+        }
+        .buscador figure{
+            height: 10vh;
+
+
+        }
+
+        .infomap{
+            
+        }
+  .headersearch{
+        height: 10vh;
+       /* background-image: linear-gradient(rgba(0,0,0,0.5) );*/
+        background-size: cover;
+        background-position: center;
+        justify-content: center;
+        align-items: center;
+        font-family:"Helvetica" ;
+        font-weight: lighter;
+
+  }
+  .search-field {
+    height: 2vh;
+    padding: 1vw;
+    border-radius: 5vw;
+    text-align: center;
+
+  }
+  .location{
+    width: 15vw;
+    font-size: 1vw;
+    text-align: center;
+
+  }
+  .price{
+    width: 8vw;
+    font-size: 1vw;
+    text-align: center;
+
+
+  }
+
+  .search-btn{
+      height: 3vh;
+      width: 6vw;
+      background:#778899;
+     border-radius: 3vw;
+     text-align: center;
+     font-size: 0.8vw;
+     font-family: Helvetica;
+     font-weight: lighter;
+
+  }
+  .search-btn:hover{
+    background: #5e6c79;  
+    cursor: pointer;
+  }
+ 
+  .ancho{
+      width: 100% ;
+  }
+
+#busqueda{
+
+}
+#aux-plan-div{
+    width: 100vw;
+    background-color: black;
+    position: absolute;
+    height: 30%;
+}
+.filterPlan-btn, #filterPlan-btn:focus{
+    display: inline-block;
+    color: white;
+    padding: 0.7%;
+    border-radius: calc(0.6vw + 0.6em);
+    width: 6vw;
+    background-color: black;
+    font-size: calc(0.8vw + 0.3vh);
+    border: none;
+    outline: none; 
+    margin: 0%;
+}
+.filterPlan-btn:hover{
+    background: #2e3842b7;  
+    cursor: pointer;
+  }
+
+/*AQUI ESTA ESTILO PARA FILTRAR*/
+
+/*Boxes experience section*/
+.experiences {
+    width: 100%;
+    display: flex;
+    background-color: black;
+    font-family:"Helvetica" ;
+    font-weight: lighter;
+
+
+
+}
+
+/* Primera linea de imagenes y texto */
+.experiencesmid {
+    width: 30%;
+    text-align: center;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.experiencesleft {
+    margin-top: 20%;
+    margin-left: 10%;
+    width: 30%;
+    text-align: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.experiencesright {
+    margin-top: 20%;
+    margin-right: 10%;
+    width: 30%;
+    text-align: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+/* Sucesivas */
+.experiencesleftnext {
+    margin-left: 10%;
+    width: 30%;
+    margin-top: 4%;
+    text-align: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.experiencesrightnext {
+    margin-right: 10%;
+    width: 30%;
+    margin-top: 4%;
+    text-align: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.experiencesmidnext {
+    width: 30%;
+    text-align: center;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-top: -18%;
+}
+
+
+/* Cambio a una columna en versiones movil */
+@media screen and (max-width: 640px){
+    .experiences {
+        width: 100%;
+        display: inline-block;
+        background-color: black;
+        font-family:"Helvetica" ;
+        font-weight: lighter;
+
+    }
+    .experiences-text-aux{
+        font-family:"Helvetica" ;
+        font-weight: lighter;
+
+
+    }
+    .experiencesmid {
+        width: 70%;
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 0%;
+        margin-top: 5%;
+    }
+    
+    .experiencesleft {
+        width: 70%;
+        text-align: center;
+        margin-left: 14%;
+        margin-right: 15%;
+        margin-bottom: 0%;
+        margin-top: 1%;
+    }
+    
+    .experiencesright {
+        width: 70%;
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 0%;
+        margin-top: 5%;
     }
 
-    .row-text {
-	    line-height: 20px;
-        font-size: calc(0.8vw + 0.8em);
+    .experiencesleftnext {
+        width: 70%;
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 0%;
+        margin-top: 5%;
     }
-
-    .row-profile p {
-        font-size: 10px;
+    
+    .experiencesrightnext {
+        width: 70%;
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 0%;
+        margin-top: 5%;
     }
-
-    .like {
-        font-size: 15px;
-    }
-
-    #thumps-like {
-        font-size: 15px;
-    }
-
-    #for_slick_slider {
-        width: calc(12vw + 12em);
+    
+    .experiencesmidnext {
+        width: 70%;
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 0%;
+        margin-top: 5%;
     }
 }
+
+
+img.responsiveimg { 
+    max-width: 100%;
+    height: auto; 
+    border-radius: calc(0.6em + 0.6vw);
+}
+  
+/* Estilo de los titulos en los subtitulos */
+.titlesubtitle {
+    text-align: center;
+    font-family: 'Helvetica';
+    font-size: calc(0.6em + 0.6vw);;
+    padding-left: 1%;
+    padding-right: 1%;
+    color: white;;
+    font-weight: lighter;
+    margin-top: calc(0.8vw + 1vh);
+
+}
+
+/* Estilo de los subtitulos */
+.subtitle {
+    text-align: left;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    font-size: calc(0.5em + 0.5vw);
+    text-align-last: left;
+    padding-left: 1%;
+    padding-right: 1%;
+    color: white;
+
+}
+
+
+.headercontainer{
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  font-family:"Helvetica" ;
+  font-weight: lighter;
+  padding: 3rem 1rem;
+  background-color: black;
+  margin-bottom: 0rem;
+}
+
+#keywords:focus{
+  background-color: white;
+}
+
+
+#searchingForDiv {
+  display: none;
+  color: white;
+  background-color: black;
+  width: 100%;
+  margin-top: 0%;
+}
+
+.cross-p {
+  display: inline-block;
+  margin-left: -5%;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.back{
+align-items: center;
+}
+
+
+#plan-popup{
+    margin-top: -50vh;
+    width: 60vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 20vw;
+    position: absolute;
+    display: none;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+#plan-popup-2{
+    margin-top: -60vh;
+    width: 60vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 20vw;
+    position: absolute;
+    display: none;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+#plan-popup-3{
+    margin-top: -50vh;
+    width: 60vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 20vw;
+    position: absolute;
+    display: none;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+#plan-popup-4{
+    margin-top: -60vh;
+    width: 60vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 20vw;
+    position: absolute;
+    display: none;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+#plan-popup-5{
+    margin-top: -50vh;
+    width: 60vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 20vw;
+    position: absolute;
+    display: none;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+/* ///////////Paginas secundarias plan a trip//////////// */
+.secondaryDiv{
+    margin-left: 20vw;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3vh;
+    width: 20vw;
+
+}
+
+/* Estilo de los titulos en los subtitulos */
+.secondaryTitle {
+    justify-content: center;
+    font-family: 'Helvetica';
+    font-size: calc(0.75em + 0.75vw);
+    text-align: center;
+}
+
+/* Estilo de los subtitulos */
+.secondarySubtitle {
+    justify-content: center;
+    font-family: 'Geneva';
+    font-weight: lighter;
+    font-size: calc(0.6em + 0.6vw);
+    text-align: center;
+}
+/* Estilo parrafos justificados centro */
+.midp {
+    text-align: center;
+}
+
+.pagina{
+    width: 60vw;
+    align-items: center;
+    text-align: center;
+
+}
+/* Imagenes experiencias */
+img.responsiveimg { 
+    max-width: 50%;
+    height: auto; 
+}
+
+.container-btn-likes {
+    font-size: calc(1.2vw + 1.2em);
+    color: white;
+    background-color: black;
+    border: none;
+    outline: none;
+    width: calc(5vw + 5vh);
+    border-radius: calc(0.6vw + 0.6vh);
+    text-align: center;
+    height: calc(10vh+20vw);
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
+.icons-btn-likes {
+    width: calc(1.5vw + 1.5vh);
+    /*width: calc(0.7vw + 0.7em);*/
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+/* Single Experience*/
+.single-experience-info {
+    width: 20vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: none;
+    height: calc(10vh+20vw);
+    text-align: left;
+}
+
+/* Texto arriba single experiencia */
+.texto_single_experience {
+    text-align: center;
+    width: 70vw;
+    margin-left: 15vw;
+    margin-right: 5vw;
+    font-size: 1vw;
+}
+
+.img_single_experience {
+    width: 50vw;
+    margin-top: 2vw;
+    margin-left: 5vw;
+}
+
+.container-btn-config {
+    font-size: calc(1.2vw + 1.2em);
+    color: white;
+    background-color: black;
+    border: none;
+    outline: none;
+    width: calc(5vw + 5vh);
+    border-radius: calc(0.6vw + 0.6vh);
+    text-align: center;
+    height: calc(10vh+20vw);
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
+.texto_single_experience_info {
+    text-align: center;
+    width: 20vw;
+    margin-left: 0.8vw;
+    margin-right: 0.8vw;
+    font-size: 0.9vw;
+}
+
+.single-experience-container-comments {
+    width: 70vw;
+    margin-right: 15vw;
+    margin-left: 15vw;
+    margin-bottom: 10vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: black;
+    height: calc(10vh+20vw);
+}
+
+.single-experience-texto-comments1 {
+    text-align: left;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    margin-top: calc(0.1vh + 0.1vw);
+    margin-left: 2vw;
+    font-size: calc(0.8vw + 0.8vh);
+    color: white;
+    padding: 0%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.single-experience-texto-comments2 {
+    text-align: left;
+    font-family: 'Helvetica';
+    font-weight: lighter;
+    margin-top: calc(0.1vh + 0.1vw);
+    margin-left: 2vw;
+    font-size: calc(0.6vw + 0.6vh);
+    color: white;
+    padding: 0%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Cada single experience oculta inicialmente: */
+#single-experience-amazonas {
+    display: none;
+    width: 85vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 5vw;
+    margin-top: 8%;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+#single-experience-australia {
+    display: none;
+    width: 85vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 5vw;
+    margin-top: 8%;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+#single-experience-japon {
+    display: none;
+    width: 85vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 5vw;
+    margin-top: 8%;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+#single-experience-newyork {
+    display: none;
+    width: 85vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 5vw;
+    margin-top: 8%;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+#single-experience-tanzania {
+    display: none;
+    width: 85vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 5vw;
+    margin-top: 8%;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+/* Colecciones */
+/* Inicialmente escondidas las colecciones*/
+
+#colecciones-aventura {
+    display: none;
+    width: 85vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 5vw;
+    margin-top: 8%;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+#colecciones-ciudad {
+    display: none;
+    width: 85vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 5vw;
+    margin-top: 8%;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+#colecciones-naturaleza {
+    display: none;
+    width: 85vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: white;
+    margin-left: 5vw;
+    margin-top: 8%;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+}
+
+.colecciones-experiences-info {
+    width: 20vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    border-radius: calc(0.6vw + 0.6vh);
+    background-color: black;
+    height: calc(10vh+20vw);
+}
+
+/*Carrusel imágenes*/
+.container-carrusel {
+    background: black; 
+    margin-top: 5vw; 
+    margin-bottom: 5vw; 
+    width: 82vw;
+    border-radius: calc(0.6vw + 0.6vh);
+}
+
+.image-carrusel {
+    border-radius: calc(0.6vw + 0.6vh);
+    object-fit: cover;
+    width: 9vw;
+    height: 9vw;
+    margin-left: 6vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+

@@ -7,7 +7,17 @@ $(document).ready(function(){
     
     // Cambio a la seccion experiences
     $(".experiences-btn").click(function() {
-        $(".ranking").hide();
+        $("#ranking").hide();
+        $("#messsage-ranking").hide();
+        $("#plan-div").hide();
+        $("#colecciones-naturaleza").hide();
+        $("#colecciones-aventura").hide();
+        $("#colecciones-ciudad").hide();
+        $("#single-experience-amazonas").hide();
+        $("#single-experience-newyork").hide();
+        $("#single-experience-japon").hide();
+        $("#single-experience-tanzania").hide();
+        $("#single-experience-australia").hide();
         paddingAnimationOff("top");
         paddingAnimationOff("plan");
         $(this).removeClass("experiences-btn");
@@ -23,6 +33,15 @@ $(document).ready(function(){
     // Cambio a la seccion top
     $(".top-btn").click(function() {
         $(".my_experiences").hide();
+        $("#plan-div").hide();
+        $("#colecciones-naturaleza").hide();
+        $("#colecciones-aventura").hide();
+        $("#colecciones-ciudad").hide();
+        $("#single-experience-amazonas").hide();
+        $("#single-experience-newyork").hide();
+        $("#single-experience-japon").hide();
+        $("#single-experience-tanzania").hide();
+        $("#single-experience-australia").hide();
         paddingAnimationOff("experiences");
         paddingAnimationOff("plan");
         $("#experiences-btn").removeClass("experiences-btn-selected");
@@ -32,14 +51,23 @@ $(document).ready(function(){
         $("#plan-btn").removeClass("plan-btn-selected");
         $("#plan-btn").addClass("plan-btn");
         paddingAnimationOn("top");
-        $(".ranking").show();
-        $(".ranking").attr("style", "display:grid")
+        ranking_more_3_users();
+        ranking();
     });
 
     // Cambio a la seccion plan a trip
     $(".plan-btn").click(function() {
         $(".my_experiences").hide();
-        $(".ranking").hide();
+        $("#ranking").hide();
+        $("#messsage-ranking").hide();
+        $("#colecciones-naturaleza").hide();
+        $("#colecciones-aventura").hide();
+        $("#colecciones-ciudad").hide();
+        $("#single-experience-amazonas").hide();
+        $("#single-experience-newyork").hide();
+        $("#single-experience-japon").hide();
+        $("#single-experience-tanzania").hide();
+        $("#single-experience-australia").hide();
         paddingAnimationOff("experiences");
         paddingAnimationOff("top");
         $("#experiences-btn").removeClass("experiences-btn-selected");
@@ -49,6 +77,7 @@ $(document).ready(function(){
         $(this).removeClass("plan-btn");
         $(this).addClass("plan-btn-selected");
         paddingAnimationOn("plan");
+        $("#plan-div").show();
     });
 
     // Apertura del menu opciones
@@ -60,8 +89,6 @@ $(document).ready(function(){
     });
 
     
-  
-
     //Cierre del menu opciones mediante el boton opciones
     $("#options-btn-selected").click(function() {
         optionsAnimationOff();
@@ -544,6 +571,179 @@ $(document).ready(function(){
         // Estilo de los mensajes de error
         errorElement : 'span'  
     });
+    // FILTRADO DE EXPERIENCIAS //////////////////////////////////////////////
+    $("#filterExperiences-btn").click(function(){
+        filtreExperiences();
+    });   
+    
+    //pop up AMERICA
+       
+    $("#show-America").click(function(){
+        $("#auxDiv-popUp").show();
+        $("#plan-popup").show();
+    });  
+
+    
+    //pop up OCEANIA
+       
+    $("#show-Oceania").click(function(){
+        $("#auxDiv-popUp").show();
+        $("#plan-popup-3").show();
+    });  
+
+    
+    //pop up AFRICA
+       
+    $("#show-Africa").click(function(){
+        $("#auxDiv-popUp").show();
+        $("#plan-popup-2").show();
+    });  
+    //pop up EUROPA
+       
+    $("#show-Europa").click(function(){
+        $("#auxDiv-popUp").show();
+        $("#plan-popup-4").show();
+        
+    });  
+    //pop up ASIA close-plan-btn
+       
+    $("#show-Asia").click(function(){
+        $("#auxDiv-popUp").show();
+        $("#plan-popup-5").show();
+    });  
+
+    $("#close-plan-btn").click(function(){
+        $("#plan-popup").hide();
+        $("#auxDiv-popUp").hide();
+    });  
+    $("#close-plan-btn-2").click(function(){
+        $("#plan-popup-2").hide();
+        $("#auxDiv-popUp").hide();
+    });  
+    $("#close-plan-btn-3").click(function(){
+        $("#plan-popup-3").hide();
+        $("#auxDiv-popUp").hide();
+    });  
+    $("#close-plan-btn-4").click(function(){
+        $("#plan-popup-4").hide();
+        $("#auxDiv-popUp").hide();
+    });  
+    $("#close-plan-btn-5").click(function(){
+        $("#plan-popup-5").hide();
+        $("#auxDiv-popUp").hide();
+    });  
+
+    /*Mostrar popups colecciones*/
+    $("#coleccion-aventura-btn").click(function() {
+        $(".my_experiences").hide();
+        $("#colecciones-aventura").show();
+    });
+
+    $("#coleccion-ciudad-btn").click(function() {
+        $(".my_experiences").hide();
+        $("#colecciones-ciudad").show();
+    });
+
+    $("#coleccion-naturaleza-btn").click(function() {
+        $(".my_experiences").hide();
+        $("#colecciones-naturaleza").show();
+    });
+
+    /*Mostrar popups single experiences*/
+    $("#experiences-amazonas").click(function() {
+        $(".my_experiences").hide();
+        $("#single-experience-amazonas").show();
+    });
+    
+    $("#experiences-australia").click(function() {
+        $(".my_experiences").hide();
+        $("#single-experience-australia").show();
+    });
+
+    $("#experiences-test-02").click(function() {
+        $(".my_experiences").hide();
+        $("#single-experience-japon").show();
+    });
+
+    $("#experiences-test-03").click(function() {
+        $(".my_experiences").hide();
+        $("#single-experience-newyork").show();
+    });
+
+    $("#experiences-test-04").click(function() {
+        $(".my_experiences").hide();
+        $("#single-experience-tanzania").show();
+    });
+
+    $("#experiences-test-05").click(function() {
+        $(".my_experiences").hide();
+        $("#single-experience-australia").show();
+    });
+    
+
+    ////////////////// EXPERIENCIAS PERSONALES
+    //Crear experiencias
+    $("#myNewExperiences").empty();
+
+    // Añadir experiencia
+    $("#addExperience-btn").click(function(){
+        $("#addExperience-form").show();
+        $("#myExperiences").hide();
+    }); 
+    //Cierre
+    $("#clsaddExperience-btn").click(function(){
+        $("#addExperience-form").hide();
+        $("#auxDiv-popUp").hide();
+        $("#myExperiences").show();
+    }); 
+    
+    //Tick de imagen cargada
+    $(document).on("change", "#experienceImage", function() {
+        $("#loadedExperienceImage").show();
+    });
+    // //Almacenmiento del experiencias
+    $("#addExperience-form").validate({
+        submitHandler: function(){
+            $("#addExperience-form").hide();
+            $("#loadedExperienceImage").hide();
+            // Lectura de datos
+            addExperience();
+            //Se muestran los cambios  
+            $("#experienceAdded").show(); 
+            $("#addExperience-form").trigger("reset");
+        },
+        // Mensajes de error
+        messages: {
+            experienceTitle: "<br>Por favor, introduce el titulo de la experiencia",
+            experienceDescription: "<br>Por favor, introduce la descripcion de la experiencia",
+            experiencePlace: "<br>Por favor, introduce el lugar de la experiencia",
+        },
+        // Estilo de los mensajes de error
+        errorElement : 'span'  
+        }); 
+
+    //Confirmacion experiencia añadida
+    $("#clsexperienceAdded").click(function(){
+        $("#experienceAdded").hide();
+        $("#auxDiv-popUp").hide();
+    }); 
+
+    //Confirmacion experiencia eliminada
+    $("#clsexperienceDeleted").click(function(){
+        $("#experienceDeleted").hide();
+        $("#auxDiv-popUp").hide();
+    }); 
+
+    //Boton de submit añadir experiencias
+    $("#saveExperience-btn").click(function(){
+        $("#addExperience-form").trigger("submit");
+    }); 
+
+    //Boton añadir experiencia
+    $("#addExperience-btn-div").click(function(){
+      $("#auxDiv-popUp").show();
+     $("#addExperience-form").show();
+    });
 
 });
 
@@ -846,158 +1046,327 @@ function changeUserPass(newUserPass) {
 }
 
 
-// RANKING
+///// RANKING ///////////////////////////
 function ranking() {
-    // Guardaremos en un string todas las cookies, teniendo como aspecto un diccionario
-    var cookies = getAllCookies()
-    console.log(typeof(cookies))
-    // Si no hay niguna cookie, entonces no avanzamos mas
-    if(Object.keys(cookies).length === 0){
-        return -1
+  // Guardaremos en un string todas las cookies, teniendo como aspecto un diccionario
+  var cookies = getAllCookies()
+  // Si no hay niguna cookie, entonces no avanzamos mas
+  if(Object.keys(cookies).length === 0){
+      return -1
+  }
+  // En esta lista guardaremos las cookies en forma de diccionario, para ello utilizaremos el for de debajo
+  var exps = []
+  for(var name in cookies) {
+    //console.log(cookies[name])
+    // Guardamos en nuestro diccionario solamente a los usuarios con todas sus características
+    if(cookies[name].search("{") !== -1){
+      // El string que contiene a cada usuario lo parseamos como un diccionario y lo guardamos en la lista exps
+      exps.push(JSON.parse(cookies[name]))
     }
-    // En esta lista guardaremos las cookies en forma de diccionario, para ello utilizaremos el for de debajo
-    var exps = []
-    for(var name in cookies) {
-        //console.log(cookies[name])
-        // Guardamos en nuestro diccionario solamente a los usuarios con todas sus características
-        if(cookies[name].search("{") !== -1){
-            // El string que contiene a cada usuario lo parseamos como un diccionario y lo guardamos en la lista exps
-            exps.push(JSON.parse(cookies[name]))
-            //console.log(aux)
-        }
-       
-    }
-
-    //console.log(exps)
-
-    let elements = []
-    let container = document.querySelector('#for_slick_slider')
-    var photo_user
-    // Ponemos cada dato nuevo a una lista auxiliar
-    for(let i = 0; i < exps.length; i++){
-        photo_user = search_user_image(exps[i].name)
-        elements.push(
-            {
-                photo: photo_user,
-                like: exps[i].likes,
-                phrase: exps[i].name
-            }
-        )
-    }
+      
+  }
+  let elements = []
+  let container = document.querySelector('#for_slick_slider')
+  var photo_user
+  // Ponemos cada dato nuevo a una lista auxiliar
+  for(let i = 0; i < exps.length; i++){
+      photo_user = search_user_image(exps[i].name)
+      elements.push(
+          {
+              photo: photo_user,
+              like: exps[i].likes,
+              phrase: exps[i].name
+          }
+      )
+  }
+  
+  // Ordenamos la lista de los usuarios
+  elements.sort((a, b) => {return b.like - a.like;})
+  
+  var photo, phrase, like, users
+  var row = document.querySelector(".row-ranking")
+  container.innerHTML = ''
+  // Creamos tantos div como usuarios haya
+  for(var i=0; i < elements.length; i++){
+      // Asignamos los datos para cada usuario
+      var aux = row.cloneNode(true)
+      container.appendChild(aux)
+  }
     
-    // Ordenamos la lista de los usuarios
-    elements.sort((a, b) => {return b.like - a.like;})
-    
-    var photo, phrase, like, users
-    var row = document.querySelector(".row")
-    container.innerHTML = ''
-    // Creamos tantos div como usuarios haya
-    for(var i=0; i < elements.length; i++){
-        // Asignamos los datos para cada usuario
-        var aux = row.cloneNode(true)
-        container.appendChild(aux)
+  users = container.getElementsByClassName("row-ranking")
+  for(var i = 0; i < users.length; i++){
+    phrase = users[i].getElementsByTagName("p")
+    like = users[i].getElementsByClassName("like")
+    photo = users[i].getElementsByTagName("img")
+    phrase[0].innerHTML = elements[i].phrase
+    like[0].innerHTML = elements[i].like
+    photo[0].src = elements[i].photo
+    // Solo mostramos a los tres primeros usuarios
+    if(i > 2){
+        users[i].style.display = "none"
     }
-    
-    users = container.getElementsByClassName("row")
-    for(var i = 0; i < users.length; i++){
-        phrase = users[i].getElementsByTagName("p")
-        like = users[i].getElementsByClassName("like")
-        photo = users[i].getElementsByTagName("img")
-        phrase[0].innerHTML = elements[i].phrase
-        like[0].innerHTML = elements[i].like
-        photo[0].src = elements[i].photo
-        // Solo mostramos a los tres primeros usuarios
-        if(i > 2){
-            users[i].style.display = "none"
-        }
-    }
+  }
 
-    check_status_buttons(users, users.length)
+  check_status_buttons(users, users.length)
 }
 
 function move_ranking(dir){
-    // Cogemos todo el ranking
-    let container = document.querySelector('#for_slick_slider')
-    // Solo habrá que hacer el movimiento de los usuarios una vez
-    var once = false
-    // Seleccionamos a todos los usuarios
-    let users = document.getElementsByClassName("row")
-    let max_lenght = users.length
-    // Recorremos a todos los usuarios hasta encontrar al primer visible
-    for(var i = 0; i < max_lenght; i++){
-        // Buscamos le primer elemento que sea visible y no se ha movido ninguno
-        if(users[i].style.display !== 'none' && !once){
-            // En caso de que no sea el primer elemento, mostraremos el elemento que se encuentra en la
-            // parte superior
-            if(dir == 'up' && i-1 >= 0){
-                users[i-1].style.display = 'flex'
-                users[i].style.display = 'flex'
-                users[i+1].style.display = 'flex'
-                users[i+2].style.display = 'none'
-                once = true
-            }
-            // En caso de que no sea el ultimo elemento, mostraremos el elemento que se encuentra en la
-            // parte inferior
-            if(dir== 'down' && i+3 < max_lenght){
-                users[i].style.display = 'none'
-                users[i+1].style.display = 'flex'
-                users[i+2].style.display = 'flex'
-                users[i+3].style.display = 'flex'
-                once = true
-            }
-        }
+  // Cogemos todo el ranking
+  let container = document.querySelector('#for_slick_slider')
+  // Solo habrá que hacer el movimiento de los usuarios una vez
+  var once = false
+  // Seleccionamos a todos los usuarios
+  let users = document.getElementsByClassName("row-ranking")
+  let max_lenght = users.length
+  // Recorremos a todos los usuarios hasta encontrar al primer visible
+  for(var i = 0; i < max_lenght; i++){
+    // Buscamos le primer elemento que sea visible y no se ha movido ninguno
+    if(users[i].style.display !== 'none' && !once){
+      // En caso de que no sea el primer elemento, mostraremos el elemento que se encuentra en la
+      // parte superior
+      if(dir == 'up' && i-1 >= 0){
+        users[i-1].style.display = 'flex'
+        users[i].style.display = 'flex'
+        users[i+1].style.display = 'flex'
+        users[i+2].style.display = 'none'
+        once = true
+      }
+      // En caso de que no sea el ultimo elemento, mostraremos el elemento que se encuentra en la
+      // parte inferior
+      if(dir== 'down' && i+3 < max_lenght){
+        users[i].style.display = 'none'
+        users[i+1].style.display = 'flex'
+        users[i+2].style.display = 'flex'
+        users[i+3].style.display = 'flex'
+        once = true
+      }
     }
-    check_status_buttons(users, max_lenght)
+  }
+  check_status_buttons(users, max_lenght)
+}
+
+// Solo se mostrara el ranking en caso de que haya mas de 3 usuarios registrados
+function ranking_more_3_users(){
+  let users = document.getElementsByClassName("row-ranking")
+  let num_users = users.length
+  console.log(num_users)
+  if(num_users <= 3){
+    console.log("he entrado 1")
+    $("#messsage-ranking").show()
+    $("#messsage-ranking").attr("style", "display:grid")
+    $("#ranking").hide()
+  }
+  else{
+    $("#ranking").show()
+    $("#ranking").attr("style", "display:grid")
+    $("#messsage-ranking").hide()
+  }
 }
 
 // Este metodo nos ayudara a obtener todas las cookies de nuestro documento en forma de string
 function getAllCookies(){
-    var cookies = { };
-    // Siempre que existan cookies se procedera a hacerlo
-    if (document.cookie && document.cookie != '') {
-        var split = document.cookie.split(';');
-        for (var i = 0; i < split.length; i++) {
-            var name_value = split[i].split("=");
-            name_value[0] = name_value[0].replace(/^ /, '');
-            cookies[decodeURIComponent(name_value[0])] = decodeURIComponent(name_value[1]);
-        }
+  var cookies = { };
+  // Siempre que existan cookies se procedera a hacerlo
+  if (document.cookie && document.cookie != '') {
+    var split = document.cookie.split(';');
+    for (var i = 0; i < split.length; i++) {
+        var name_value = split[i].split("=");
+        name_value[0] = name_value[0].replace(/^ /, '');
+        cookies[decodeURIComponent(name_value[0])] = decodeURIComponent(name_value[1]);
     }
+  }
 
-    return cookies;
+  return cookies;
 }
 
-
-///// RANKING //////////////////////////
 // Este metodo nos ayudara a buscar la imagen del usuario
 function search_user_image(userId){
-    let userProfileImage = localStorage.getItem(userId + "-" +"profileImg");
-    if (userProfileImage == "null" | userProfileImage == null | userProfileImage == undefined){
-        localStorage.setItem(userId + "-" +"profileImg", "null");
-        return "./images/avatar.jpeg";
-    }
-    return userProfileImage
+  let userProfileImage = localStorage.getItem(userId + "-" +"profileImg");
+  if (userProfileImage == "null" | userProfileImage == null | userProfileImage == undefined){
+    localStorage.setItem(userId + "-" +"profileImg", "null");
+    return "./images/avatar.jpeg";
+  }
+  return userProfileImage
 }
 
 // Verificamos si hay más de un usuario o no, para mostrar las flechas o no
 function check_status_buttons(users, max_lenght){
-    var button_up = document.querySelector("#arrow-button-up");
-    var button_down = document.querySelector("#arrow-button-down");
-    // En caso de que se muestre el primer elemento, entonces significa que no se puede subir mas
-    if(users[0].style.display == 'flex' || users[0].style.display == ''){
-        button_up.style.color = 'gray';
-        button_up.style.cursor = 'default';
+  var button_up = document.querySelector("#arrow-button-up");
+  var button_down = document.querySelector("#arrow-button-down");
+  // En caso de que se muestre el primer elemento, entonces significa que no se puede subir mas
+  if(users[0].style.display == 'flex' || users[0].style.display == ''){
+    button_up.style.color = 'gray';
+    button_up.style.cursor = 'default';
+  }
+  else{
+    button_up.style.color = 'black';
+    button_up.style.cursor = 'pointer';
+  }
+  // En caso de que se muestre el ultimo elemento, entonces significa que no se puede bajar
+  if(users[max_lenght-1].style.display == 'flex' || users[max_lenght-1].style.display == ''){
+    button_down.style.color = 'gray';
+    button_down.style.cursor = 'default';
+  }
+  else{
+    button_down.style.color = 'black';
+    button_down.style.cursor = 'pointer';
+  }
+}
+//CODIGO BUSQUEDA//
+/////////////////////////////
+/////////////////////////////
+//////////////////////////
+// Filtra los resultados sobre el texto introducido
+function filtreExperiences() {
+    let keywords = $("#keywords").val();
+    //Se muestra el searching for:
+    if (keywords != "") {  
+        document.getElementById("searchingForText").innerHTML = "Buscando por : " + "''" +  String(keywords).toLowerCase() + "''" ;
+        $("#searchingForDiv").show();
     }
-    else{
-        button_up.style.color = 'black';
-        button_up.style.cursor = 'pointer';
+    else {
+        $("#searchingForDiv").hide();
     }
-    // En caso de que se muestre el ultimo elemento, entonces significa que no se puede bajar
-    if(users[max_lenght-1].style.display == 'flex' || users[max_lenght-1].style.display == ''){
-        button_down.style.color = 'gray';
-        button_down.style.cursor = 'default';
+    var hiddenExps = new Array();
+    var showExps = new Array();
+    // Se muestran todas por si hay alguna oculta y se almacenan el numero de experiencias y el numero de bloques
+    let numberOfDefaultExperiences = resetExperiences();
+
+    //Se almacenan los textos y las imagenes
+    var { experiencesImages, experiencesTitles, experiencesDescriptions } = saveDefaultExperiences(numberOfDefaultExperiences);
+    // Se almacen las posiciones donde estan las experiencias a ocultar y a mostrar
+    selectExperiences(numberOfDefaultExperiences, keywords, hiddenExps, showExps);
+    // Se reorganizan intercambiando los contenidos entre mostradas y no mostradas
+    refactorExperiencesUi(showExps, experiencesImages, experiencesTitles, experiencesDescriptions, numberOfDefaultExperiences);
+}
+
+// Modifica la seccion de experiences tras filtrar los resultados
+function refactorExperiencesUi(showExps, experiencesImages, experiencesTitles, experiencesDescriptions, numberOfDefaultExperiences) {
+    var aux;
+    for (let j = 0; j < showExps.length; j++) {
+        //Img
+        aux = experiencesImages[j];
+        experiencesImages[j] = experiencesImages[showExps[j]];
+        experiencesImages[showExps[j]] = aux;
+        //Title
+        aux = experiencesTitles[j];
+        experiencesTitles[j] = experiencesTitles[showExps[j]];
+        experiencesTitles[showExps[j]] = aux;
+        //Desc
+        aux = experiencesDescriptions[j];
+        experiencesDescriptions[j] = experiencesDescriptions[showExps[j]];
+        experiencesDescriptions[showExps[j]] = aux;
     }
-    else{
-        button_down.style.color = 'black';
-        button_down.style.cursor = 'pointer';
+    // Se realiza el cambio en el html
+    for (let j = 0; j < numberOfDefaultExperiences; j++) {
+        document.getElementById("img" + j).src = experiencesImages[j];
+        document.getElementById("title" + j).innerHTML = experiencesTitles[j];
+        document.getElementById("description" + j).innerHTML = experiencesDescriptions[j];
     }
+    //Se ocultan las no seleccionadas recorriendo desde las seleccionadas
+    for (j = showExps.length; j < numberOfDefaultExperiences; j++) {
+        $("#img" + j).hide();
+        $("#title" + j).hide();
+        $("#description" + j).hide();
+    }
+}
+
+//Selecciona las experencias que deben mostrarse tras el filtrado
+function selectExperiences(numberOfDefaultExperiences, keywords, hiddenExps, showExps) {
+    for (let j = 0; j < numberOfDefaultExperiences; j++) {
+        let currentElement = document.getElementById("exp" + j);
+        currentElement = String(currentElement.textContent).toLowerCase();
+        if (currentElement.search(String(keywords).toLowerCase()) == -1) {
+            hiddenExps.push(j);
+        }
+        else {
+            showExps.push(j);
+        }
+    }
+}
+
+// Guarda los datos de las experiencias de la tercera seccion para operar con ellos
+function saveDefaultExperiences(numberOfDefaultExperiences) {
+    var experiencesImages = new Array();
+    var experiencesTitles = new Array();
+    var experiencesDescriptions = new Array();
+    for (let j = 0; j < numberOfDefaultExperiences; j++) {
+        experiencesImages.push(document.getElementById("img" + j).src);
+        experiencesTitles.push(document.getElementById("title" + j).textContent);
+        experiencesDescriptions.push(document.getElementById("description" + j).textContent);
+    }
+    return { experiencesImages, experiencesTitles, experiencesDescriptions };
+}
+//Reinicia las experiencias
+function resetExperiences() {
+    let i = 0;
+    while (document.getElementById("exp" + i) != null) {
+        $("#img" + i).show();
+        $("#title" + i).show();
+        $("#description" + i).show();
+        i++;
+    }
+    return i;
+}
+
+
+// Añadir experiencias
+function addExperience() {
+    let userId = Cookies.get("currentUser");
+    let userCookie = Cookies.get(userId);
+    let userData = JSON.parse(userCookie);
+
+    let {experienceTitle, experienceImage, experiencePlace, experienceDescription } = getExperienceData();
+    let numberOfBigDiv = (userData.numberOfExperiences) % 2;
+    let realNumberBigDiv = Math.floor(userData.numberOfExperiences / 2);
+    alert(userData.numberOfExperiences + " - " + numberOfBigDiv + " - " + realNumberBigDiv);
+    if (numberOfBigDiv == 0){
+      $("#userExperiences").prepend("<div id='coupleExperiences-div-" + realNumberBigDiv  + "'" +  "class='d-flex justify-content-center mt-5'>");
+    }
+
+
+      $("#coupleExperiences-div-" + realNumberBigDiv).prepend("<div id=experience-" + userData.numberOfExperiences + "class='d-flex mr-1 ml-1'><div class='col'><img src='images/amazonas2.jpg' class='myprofile-experiences-image' onclick='showExperiencesPopUp()'>" + 
+            "<div class='experiences-options-btn'>" + 
+                    "<button id=" + userId + "-experience-" + userData.numberOfExperiences + "-like-btn" + "class='change-experiences-btn' type=button value=Buscar><img src='./images/like-icon.png'  class='options-icon'></button>" + 
+                    "<button id=" + userId + "-experience-" + userData.numberOfExperiences + "-comment-btn" + "class='change-experiences-btn' type=button value=Buscar><img src='./images/comment-icon.png' class='options-icon  mr-2 ml-2'></button>" + 
+                    "<button class='change-experiences-btn' type=button value=Buscar><img src='./images/delete-icon.png' class='options-icon' onclick=deleteExperience(" + userData.numberOfExperiences + ")></button>" + 
+            "</div>" + 
+            "<div class='myprofile-experiences-info'>" + 
+                "<p class='titles-experiences-white'>" + experienceTitle + "</p>" + 
+                "<div class='col ml-2'>"   + 
+                    "<p class='text-experiences-info-white'>10 likes</p>" + 
+                    "<p class='text-experiences-info-white'>5 comentarios</p>" + 
+                "</div>" + 
+                "<hr class='experiences-info-separator'>" + 
+                "<div id='experiences-test-00-coments' class='col mb-4 ml-2'>" + 
+                    "<p class='text-experiences-info-white mb-2'>Comentarios</p>" + 
+                    "<p id='experiences-test-00-coment-00' class='text-experiences-comments'>Muestra de comentarios</p> " +  
+                  "<p id='experiences-test-00-coment-00' class='text-experiences-comments'>Muestra de comentarios</p>" +
+                "</div>" +
+                "<div class='d-flex'></div>" +
+            "</div>"  +   
+        "</div>" +
+    "</div>");
+    
+    userData.numberOfExperiences++;
+    Cookies.set(String(userId), JSON.stringify(userData), { secure: true });
+
+
+}
+
+// Lectura de los datos del usuario al insertar experiencias
+function getExperienceData() {
+    let userId = Cookies.get("currentUser");
+    let userCookie = Cookies.get(userId);
+    let userData = JSON.parse(userCookie);
+    let experienceTitle = $("#experienceTitle").val();
+    let experienceDescription = $("#experienceDescription").val();
+    let experiencePlace = $("#experiencePlace").val();
+    let experienceImage = document.getElementById("experienceImage").files[0];
+    return {experienceTitle, experienceImage, experiencePlace, experienceDescription};
+}
+
+function showExperiencesPopUp(){
+ document.getElementById("single-experience-amazonas").style.display = "block";
+ document.getElementById("my_experiences").style.display = "none";
 }
