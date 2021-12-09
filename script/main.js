@@ -4,6 +4,7 @@ $(document).ready(function(){
 
     // Pone el header en modo registrado o sin registrar
     $(document).ready(setHeader());
+    showUserExperiences(); 
     
     $("#mainLogo-btn").click(function() {
         $("#ranking").hide();
@@ -27,6 +28,7 @@ $(document).ready(function(){
         $("#plan-btn").addClass("plan-btn");
         paddingAnimationOn("experiences");
         $(".my_experiences").show();
+        showUserExperiences(); 
     });
 
     // Cambio a la seccion experiences
@@ -52,6 +54,7 @@ $(document).ready(function(){
         $("#plan-btn").addClass("plan-btn");
         paddingAnimationOn("experiences");
         $(".my_experiences").show();
+        showUserExperiences(); 
     });
 
     // Cambio a la seccion top
@@ -214,6 +217,13 @@ $(document).ready(function(){
     $("#close-signUp-ok-btn").click(function(){
         $("#signUp-ok-popUp").hide();
         $("#auxDiv-popUp").hide();
+    });
+
+    //Cierre searching for
+    $("#clssearchingForBtn").click(function(){
+        $("#searchingForDiv").hide();
+        $("#keywords").val("");
+        resetExperiences();
     });
 
     //Carga imagen usuario
@@ -877,9 +887,12 @@ function hideUserProfile(){
     $("#addCollection-btn-div").hide();
     $("#addExperience-btn-div").hide();
     $("#coupleExperiences-div-test-special").show();
-
-
+    $("#userExperiences").empty();
+    $("#userImage-onProfile").attr("src",'./images/avatar.jpeg');
+    document.getElementById("userName-onProfile").innerHTML = "Usuario: ";
+    document.getElementById("userEmail-onProfile").innerHTML = "Email: ";
 }
+
 
 //Cambia la interfaz y pasa a modo usuario
 function showUserProfile(userId){
@@ -904,6 +917,7 @@ function showUserProfile(userId){
     $("#userProfile-div").show();
     $("#addCollection-btn-div").show();
     $("#addExperience-btn-div").show();
+    showUserExperiences(); 
 }
 
 // Se carga el menu de opciones con la informacion del usuario
@@ -1384,9 +1398,79 @@ function addExperience() {
     
     userData.numberOfExperiences++;
     Cookies.set(String(userId), JSON.stringify(userData), { secure: true });
-
-
 }
+
+
+
+// Mostrar experiencias
+function showUserExperiences() {
+    let userId = Cookies.get("currentUser");
+    if (userId == null | userId == undefined | userId == "null" | userId == ""){
+        $("#coupleExperiences-div-test-special").show();
+    }    
+    else{
+        let userCookie = Cookies.get(userId);
+        if (userCookie == null | userCookie == undefined | userCookie == "null" | userCookie == ""){
+            $("#coupleExperiences-div-test-special").show();
+            return;
+        }  
+        let userData = JSON.parse(userCookie);
+        let experiences = JSON.parse(localStorage.getItem(userId));
+        // Si no existe la lista de experiencias se para
+        if (userData.numberOfExperiences == 0 | userData.numberOfExperiences == "0"){
+            $("#coupleExperiences-div-test-special").show();
+        }
+        else{
+            $("#coupleExperiences-div-test-special").hide();
+            for(let i = 0; i < userData.numberOfExperiences; i++ ){
+                let numberOfBigDiv = i % 2;
+                let realNumberBigDiv = Math.floor(i / 2);
+                let experienceTitle = experiences[i][0];
+                let experienceImage = experiences[i][1];
+                let experienceLikes = experiences[i][2]; 
+                let experienceComments = experiences[i][3]; 
+                if (numberOfBigDiv == 0){
+                    $("#userExperiences").prepend("<div id='coupleExperiences-div-" + realNumberBigDiv  + "'" +  "class='d-flex justify-content-center mt-5'>");
+                }
+                    $("#coupleExperiences-div-" + realNumberBigDiv).prepend("<div id=" + userId + "-experience-" + i + " class='d-flex mr-1 ml-1'><div class='col'><img src="+ experienceImage +" class='myprofile-experiences-image' onclick='showExperiencesPopUp()'>" + 
+                            "<div class='experiences-options-btn'>" + 
+                                    "<button id=" + userId + "-experience-" + i + "-like-btn " + "class='change-experiences-btn' type=button value=Buscar  onclick='addLike(" + i +");'>" + "<img src='./images/like-icon.png'  class='options-icon'></button>" + 
+                                    "<button id=" + userId + "-experience-" + i + "-comment-btn " + "class='change-experiences-btn' type=button value=Buscar><img src='./images/comment-icon.png' class='options-icon  mr-2 ml-2'></button>" + 
+                                    "<button class='change-experiences-btn' type=button value=Buscar><img src='./images/delete-icon.png' class='options-icon' onclick=deleteExperience(" + i + ")></button>" + 
+                            "</div>" + 
+                            "<div class='myprofile-experiences-info'>" + 
+                                "<p class='titles-experiences-white'>" + experienceTitle + "</p>" + 
+                                "<div class='col ml-2'>"   + 
+                                    "<p class='text-experiences-info-white mb-2 ml-1' id=" + userId + "-experience-" + i + "-experienceLikes " +  "class=text-experiences-comments" +"> Numero de me gusta: "+ experienceLikes + " "+ "</p>" + 
+                                    "<p class='text-experiences-info-white mb-2 ml-1' id=" + userId + "-experience-" + i + "-experienceComments " +  "class=text-experiences-comments" +"> Numero de comentarios: "+ experienceComments + " "+ "</p>" + 
+                                "</div>" + 
+                                "<hr class='experiences-info-separator'>" + 
+                                "<div id=" + userId + "-experience-" + i + "experienceCommentsText" + "class='col'>" + 
+                                    "<p class='text-experiences-info-white ml-4'> Comentarios</p>" + 
+                                    "<p class='text-experiences-info-white ml-4' id=" + userId + "-experience-" + i + "comment-00"  + "> Muestra de comentarios "+ "</p>" + 
+                                    "<p class='text-experiences-info-white ml-4 mb-5' id=" + userId + "-experience-" + i + "comment-01" + "> Muestra de comentarios "+ "</p>" + 
+                                "</div>" +
+                                "<div class='d-flex'></div>" +
+                            "</div>"  +   
+                        "</div>" +
+                    "</div>");
+            }
+            // Se muestra la informacion del usuario
+            $("#userProfile-div").show();
+            let userImage = JSON.parse(localStorage.getItem(userId + "-profileImg"));
+            if (userImage == null | userImage == undefined | userImage == "null" | userImage == ""){
+                $("#userImage-onProfile").attr("src",'./images/avatar.jpeg');
+            } 
+            else{
+                $("#userImage-onProfile").attr("src", userImage);
+            }
+            document.getElementById("userName-onProfile").innerHTML = "Usuario: " + userId;
+            document.getElementById("userEmail-onProfile").innerHTML = "Email: " + userData.email;
+        }
+    }
+}
+
+
 function saveExperience(userId, experienceTitle, experienceImage){
     let experiences = JSON.parse(localStorage.getItem(userId));
     // Si no existe la lista de experiencias se crea
